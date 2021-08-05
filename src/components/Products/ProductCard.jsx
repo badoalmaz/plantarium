@@ -99,14 +99,14 @@ export default function ProductCard({ item }) {
         </CardActionArea>
         <CardActions>
           <Container>
-            <div className={classes.button}>
+            <Button className={classes.button} variant='outlined'>
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
-            </div>
-            <div className={classes.button}>
+            </Button>
+            <Button className={classes.button}>
               <DeleteIcon style={{ marginRight: "20px" }} />
               Delete
-            </div>
+            </Button>
           </Container>
         </CardActions>
       </Card>
