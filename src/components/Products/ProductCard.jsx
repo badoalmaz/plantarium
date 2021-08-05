@@ -99,7 +99,7 @@ export default function ProductCard({ item }) {
         </CardActionArea>
         <CardActions>
           <Container>
-            <Button className={classes.button}>
+            <Button className={classes.button} variant="outlined">
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
             </Button>
