@@ -5,7 +5,7 @@ import { Button, makeStyles } from "@material-ui/core";
 import { Box } from "@material-ui/core";
 // import { Row } from "react-bootstrap";
 import { BrowserRouter, Link, NavLink } from "react-router-dom";
-import Routes from "../Routes/Routes";
+// import Routes from "../Routes/Routes";
 
 const useStyles = makeStyles((theme) => ({
   aboutus: {
@@ -14,10 +14,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "80vh",
     // backgroundImage: `url(${"https://www.desktopbackground.org/download/1280x800/2012/09/22/456710_ashford-tropics-27-x-27-banana-leaf-wallpapers_1500x1500_h.jpg"})`,
-    background: "linear-gradient(to right top, #1c5347, #7ea067)",
+    // background: "linear-gradient(to right top, #1c5347, #7ea067)",
+    background: "linear-gradient(to right bottom,  #020e02, #016f5e)",
     // backgroundRepeat: "no-repeat",
     // borderRadius: "40px",
-    marginTop: "4rem",
+    marginTop: "20rem",
     // marginLeft: "2rem",
   },
   aboutUstxt: {
@@ -79,17 +80,15 @@ const AboutUs = () => {
             offer the best quality plants at the best prices <br />
             possible. After all, we've been in the business for years!
           </Typography>
-          <BrowserRouter>
-            <Link to="/aboutus">
-              <Button className={classes.learnmoreBtn} variant="outlined">
-                LEARN MORE &#8594;
-              </Button>
-            </Link>
-          </BrowserRouter>
+          <Link to="/aboutuspage">
+            <Button className={classes.learnmoreBtn} variant="outlined">
+              LEARN MORE &#8594;
+            </Button>
+          </Link>
         </Typography>
         <iframe
           className={classes.video}
-          src="https://www.youtube.com/embed/UvTRLyXr5xQ"
+          src="https://www.youtube.com/embed/UvTRLyXr5xQ?"
           frameBorder="0"
           width="820"
           height="515"
