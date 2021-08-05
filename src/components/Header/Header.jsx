@@ -2,6 +2,7 @@ import { Typography } from "@material-ui/core";
 import { Button, makeStyles } from "@material-ui/core";
 import { Box } from "@material-ui/core";
 import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 
 const useStyles = makeStyles((theme) => ({
@@ -53,9 +54,11 @@ const Header = () => {
         <Typography className={classes.moto}>
           FIND <br /> YOUR <br /> SOULPLANT
           <br />
-          <Button className={classes.buttonStyle} variant="outlined">
-            SHOP NOW &#8594;
-          </Button>
+          <Link to="/catalogue">
+            <Button className={classes.buttonStyle} variant="outlined">
+              SHOP NOW &#8594;
+            </Button>
+          </Link>
         </Typography>
         <img
           className={classes.headerPic}

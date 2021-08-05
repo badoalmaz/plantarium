@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,9 +60,15 @@ const Navbar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Button className={classes.navbarbtn}>About us</Button>
-          <Button className={classes.navbarbtn}>Home</Button>
-          <Button className={classes.navbarbtn}>Catalogue</Button>
+          <Link to="/aboutuspage">
+            <Button className={classes.navbarbtn}>About us</Button>
+          </Link>
+          <Link to="/">
+            <Button className={classes.navbarbtn}>Home</Button>
+          </Link>
+          <Link to="/catalogue">
+            <Button className={classes.navbarbtn}>Catalogue</Button>
+          </Link>
           <Button className={classes.navbarbtn}>Sale%</Button>
           <Button className={classes.title}>PLANTARIUM</Button>
           <Button color="inherit">Login</Button>

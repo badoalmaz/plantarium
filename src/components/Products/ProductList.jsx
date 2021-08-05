@@ -1,7 +1,7 @@
 import { Container, Grid } from "@material-ui/core";
 import React, { useContext, useEffect } from "react";
-import { productContext } from "./ProductContext";
-import ProductCard from "./components/Products/ProductCard";
+import { productContext } from "../../contexts/ProductContext";
+import ProductCard from "./ProductCard";
 
 const ProductList = () => {
   const { productsData, getProductsData } = useContext(productContext);
@@ -15,7 +15,7 @@ const ProductList = () => {
   }, [productsData]);
 
   return (
-    <Grid container justify='space-around'>
+    <Grid container justify="space-around">
       {productsData && productsData ? (
         productsData.map((item) => <ProductCard item={item} />)
       ) : (

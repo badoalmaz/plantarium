@@ -72,41 +72,41 @@ export default function ProductCard({ item }) {
       <Card className={classes.root}>
         <CardActionArea>
           <div className={classes.figure}>
-            <CardMedia component='img' image={item.img} />
-            <div className='appear-item'>
+            <CardMedia component="img" image={item.img} />
+            <div className="appear-item">
               <span>{item.type}</span>
             </div>
           </div>
           <CardContent>
             <WhiteTextTypography
               gutterBottom
-              variant='contained'
-              component='h3'
+              variant="contained"
+              component="h3"
             >
               {item.title}
             </WhiteTextTypography>
             <Typography
               className={classes.style}
-              variant='body2'
-              component='h2'
+              variant="body2"
+              component="h2"
             >
               {item.description}
             </Typography>
-            <Typography variant='h6' component='h6'>
+            <Typography variant="h6" component="h6">
               {item.price}$
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Container>
-            <div className={classes.button}>
+            <Button className={classes.button}>
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
-            </div>
-            <div className={classes.button}>
+            </Button>
+            <Button className={classes.button}>
               <DeleteIcon style={{ marginRight: "20px" }} />
               Delete
-            </div>
+            </Button>
           </Container>
         </CardActions>
       </Card>
