@@ -8,7 +8,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Box, Grid } from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { Box, Container, Grid, IconButton } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -44,14 +46,20 @@ const useStyles = makeStyles((theme) => ({
       visibility: "visible",
     },
   },
-  figure: {
-    position: "relative",
+  button: {
+    fontSize: "20px",
+    cursor: "pointer",
+    color: "gold",
+    width: "140px",
+    borderRadius: "8px",
+    border: "2px solid gold",
   },
 }));
 
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FFFFFF",
+    fontSize: "16px",
   },
 })(Typography);
 
@@ -90,20 +98,16 @@ export default function ProductCard({ item }) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Grid>
-            <Box>
-              <DeleteIcon />
-            </Box>
-            <Box>
-              <DeleteIcon />
-            </Box>
-            <Box>
-              <DeleteIcon />
-            </Box>
-            <Box>
-              <DeleteIcon />
-            </Box>
-          </Grid>
+          <Container>
+            <div className={classes.button}>
+              <EditIcon style={{ marginRight: "20px" }} />
+              Edit
+            </div>
+            <div className={classes.button}>
+              <DeleteIcon style={{ marginRight: "20px" }} />
+              Delete
+            </div>
+          </Container>
         </CardActions>
       </Card>
     </div>
