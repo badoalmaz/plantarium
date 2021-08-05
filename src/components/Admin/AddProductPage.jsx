@@ -126,7 +126,7 @@ const AddProductPage = () => {
               color="secondary"
             />
             <TextField
-              name="image"
+              name="img"
               variant="outlined"
               label="Image URL"
               onChange={handleInp}

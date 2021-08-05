@@ -47,6 +47,7 @@ const ProductContextProvider = ({ children }) => {
     });
   };
   const addProduct = async (product) => {
+    console.log(product);
     const data = await axios.post(JSON_API_PRODUCTS, product);
     getProductsData();
   };
