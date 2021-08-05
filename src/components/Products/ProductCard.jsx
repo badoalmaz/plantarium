@@ -11,6 +11,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Box, Container, Grid, IconButton } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -64,42 +65,42 @@ const WhiteTextTypography = withStyles({
 })(Typography);
 
 export default function ProductCard({ item }) {
-  console.log(item);
   const classes = useStyles();
-
   return (
     <div>
       <Card className={classes.root}>
         <CardActionArea>
-          <div className={classes.figure}>
-            <CardMedia component="img" image={item.img} />
-            <div className="appear-item">
-              <span>{item.type}</span>
+          <NavLink to={`/details/${item.id}`}>
+            <div className={classes.figure}>
+              <CardMedia component='img' image={item.img} />
+              <div className='appear-item'>
+                <span>{item.type}</span>
+              </div>
             </div>
-          </div>
+          </NavLink>
           <CardContent>
             <WhiteTextTypography
               gutterBottom
-              variant="contained"
-              component="h3"
+              variant='contained'
+              component='h3'
             >
               {item.title}
             </WhiteTextTypography>
             <Typography
               className={classes.style}
-              variant="body2"
-              component="h2"
+              variant='body2'
+              component='h2'
             >
               {item.description}
             </Typography>
-            <Typography variant="h6" component="h6">
+            <Typography variant='h6' component='h6'>
               {item.price}$
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Container>
-            <Button className={classes.button} variant="outlined">
+            <Button className={classes.button} variant='outlined'>
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
             </Button>

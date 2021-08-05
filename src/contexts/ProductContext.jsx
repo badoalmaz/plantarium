@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
+
 import { useHistory } from "react-router";
-import { JSON_API_PRODUCTS } from "../helpers/consts";
+
+import { ACTIONS, JSON_API_PRODUCTS } from "../helpers/consts";
 
 export const productContext = createContext();
 
@@ -11,12 +13,15 @@ export const useProducts = () => {
 
 const INIT_STATE = {
   productsData: [],
+  productDetails: {},
 };
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
-    case "GET_PRODUCTS":
+    case ACTIONS.GET_PRODUCTS:
       return { ...state, productsData: action.payload };
+    case ACTIONS.GET_PRODUCT_DETAILS:
+      return { ...state, productDetails: action.payload };
     default:
       return state;
   }
@@ -26,10 +31,18 @@ const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const history = useHistory();
 
-  const getProductsData = async () => {
-    const { data } = await axios("http://localhost:8003/plants");
+  const getProductDetails = async (id) => {
+    const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
     dispatch({
-      type: "GET_PRODUCTS",
+      type: ACTIONS.GET_PRODUCT_DETAILS,
+      payload: data,
+    });
+  };
+
+  const getProductsData = async () => {
+    const { data } = await axios(JSON_API_PRODUCTS);
+    dispatch({
+      type: ACTIONS.GET_PRODUCTS,
       payload: data,
     });
   };
@@ -43,6 +56,8 @@ const ProductContextProvider = ({ children }) => {
     getProductsData,
     addProduct,
     history,
+    getProductDetails,
+    productDetails: state.productDetails,
   };
 
   return (

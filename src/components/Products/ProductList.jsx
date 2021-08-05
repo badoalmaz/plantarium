@@ -1,6 +1,6 @@
 import { Container, Grid } from "@material-ui/core";
 import React, { useContext, useEffect } from "react";
-import { productContext, useProducts } from "../../contexts/ProductContext";
+import { useProducts } from "../../contexts/ProductContext";
 import ProductCard from "./ProductCard";
 
 const ProductList = () => {
