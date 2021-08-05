@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "95vh",
     backgroundColor: "black",
-    background: "linear-gradient(to right bottom, #1c5347, #7ea067)",
+    // background: "linear-gradient(to right bottom, #1c5347, #7ea067)",
+    background: "linear-gradient(to right bottom,  #020e02, #016f5e)",
   },
   moto: {
     color: "white",
@@ -59,7 +60,8 @@ const Header = () => {
         <img
           className={classes.headerPic}
           //   src="https://i.pinimg.com/originals/ac/98/ce/ac98ce1eb6858366478a47b634ba8bd2.gif"
-          src="https://i.pinimg.com/originals/3e/48/d8/3e48d8a50b0091c9884280e3612180ce.gif"
+          //   src="https://i.pinimg.com/originals/3e/48/d8/3e48d8a50b0091c9884280e3612180ce.gif"
+          src="https://i.pinimg.com/originals/41/3c/12/413c1240c1d1ea431ee13982645157ab.gif"
           alt=""
         />
       </Box>
