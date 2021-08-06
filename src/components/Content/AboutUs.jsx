@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
 
     width: "100%",
-    height: "80vh",
+    // height: "90vh",
     // backgroundImage: `url(${"https://www.desktopbackground.org/download/1280x800/2012/09/22/456710_ashford-tropics-27-x-27-banana-leaf-wallpapers_1500x1500_h.jpg"})`,
     // background: "linear-gradient(to right top, #1c5347, #7ea067)",
     background: "linear-gradient(to right bottom,  #020e02, #016f5e)",

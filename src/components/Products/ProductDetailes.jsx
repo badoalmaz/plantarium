@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     flexWrap: "nowrap",
   },
+  detailsFont: {
+    fontFamily: '"Merienda"',
+  },
 }));
 
 const ProductDetails = () => {
@@ -62,33 +65,42 @@ const ProductDetails = () => {
               <ButtonBase className={classes.image}>
                 <img
                   className={classes.img}
-                  alt='complex'
+                  alt="complex"
                   src={productDetails.img}
                 />
               </ButtonBase>
             </Grid>
             <Grid item xs={12} sm container>
-              <Grid item xs container direction='column' spacing={2}>
+              <Grid item xs container direction="column" spacing={2}>
                 <Grid item xs>
-                  <Typography variant='h3' component='h2'>
+                  <Typography
+                    variant="h3"
+                    component="h2"
+                    className={classes.detailsFont}
+                  >
                     {productDetails.title}
                   </Typography>
-                  <Typography variant='h5' component='h2'>
+                  <Typography
+                    variant="h5"
+                    component="h2"
+                    className={classes.detailsFont}
+                  >
                     Type: {productDetails.type}
                   </Typography>
+
                   <Grid>
-                    <WbSunnyIcon color='error' />
-                    <Typography variant='h6' component='h2'>
+                    <WbSunnyIcon color="error" />
+                    <Typography variant="h6" component="h2">
                       He’ll enjoy a spot with lots of bright light, though not
                       too much direct sun. He won’t enjoy living in shade.
                     </Typography>
-                    <OpacityIcon color='primary' />
-                    <Typography variant='h6' component='h2'>
+                    <OpacityIcon color="primary" />
+                    <Typography variant="h6" component="h2">
                       His leaves hold a lot of water, so he doesn’t need
                       frequent watering. Water him only when his soil is dry.
                     </Typography>
-                    <LocalFloristIcon color='secondary' />
-                    <Typography variant='h6' component='h2'>
+                    <LocalFloristIcon color="secondary" />
+                    <Typography variant="h6" component="h2">
                       He doesn’t cope well with cold. The temperature of most
                       homes should be fine, but keep him away from draughts.
                     </Typography>
@@ -96,14 +108,14 @@ const ProductDetails = () => {
                 </Grid>
               </Grid>
               <Grid item>
-                <Typography variant='h3' component='h2'>
+                <Typography variant="h3" component="h2">
                   {productDetails.price}$
                 </Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item>
-            <Typography variant='h6' component='h2'>
+            <Typography variant="h6" component="h2">
               {productDetails.description}
             </Typography>
           </Grid>
