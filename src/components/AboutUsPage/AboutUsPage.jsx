@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgba(255, 255, 255, .4)",
     fontSize: "40px",
 
-    margin: "6rem",
+    margin: "4rem",
     // fontSize: "25px",
     borderRadius: "60px",
   },
@@ -38,13 +38,13 @@ const AboutUsPage = () => {
       <Container className={classes.content}>
         <Typography className={classes.aboutUsTxt}>
           {" "}
-          I developed a passion for plants way back in my early twenties. I grew
-          up in the outskirts of Mexico City, surrounded by nature. My family
-          owned a big piece of land which was divided between my parents, my
-          brothers, my sister, and me. We each had our own house and shared
-          common areas with a pool, a huge garden, and some undeveloped land.
-          Eventually, my brothers and I built a greenhouse and launched a
-          business selling poinsettias. That's when it all started.
+          ABOUT US <br /> I developed a passion for plants way back in my early
+          twenties. I grew up in the outskirts of Mexico City, surrounded by
+          nature. My family owned a big piece of land which was divided between
+          my parents, my brothers, my sister, and me. We each had our own house
+          and shared common areas with a pool, a huge garden, and some
+          undeveloped land. Eventually, my brothers and I built a greenhouse and
+          launched a business selling poinsettias. That's when it all started.
         </Typography>
         <Image
           className={classes.aboutUsImg}

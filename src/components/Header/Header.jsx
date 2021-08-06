@@ -3,6 +3,7 @@ import { Button, makeStyles } from "@material-ui/core";
 import { Box } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
+import NavbarB from "../Navbar/Navbar";
 import Navbar from "../Navbar/Navbar";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +50,7 @@ const Header = () => {
   const classes = useStyles();
   return (
     <div className={classes.header}>
-      <Navbar className={classes.navbar} />
+      {/* <NavbarB className={classes.navbar} /> */}
       <Box className={classes.headerFlex} component="span" m={1}>
         <Typography className={classes.moto}>
           FIND <br /> YOUR <br /> SOULPLANT

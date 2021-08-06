@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     flexWrap: "nowrap",
   },
+  detailsFont: {
+    fontFamily: '"Merienda"',
+  },
 }));
 
 const ProductDetails = () => {
@@ -58,18 +61,26 @@ const ProductDetails = () => {
               <ButtonBase className={classes.image}>
                 <img
                   className={classes.img}
-                  alt='complex'
+                  alt="complex"
                   src={productDetails.img}
                 />
               </ButtonBase>
             </Grid>
             <Grid item xs={12} sm container>
-              <Grid item xs container direction='column' spacing={2}>
+              <Grid item xs container direction="column" spacing={2}>
                 <Grid item xs>
-                  <Typography variant='h3' component='h2'>
+                  <Typography
+                    variant="h3"
+                    component="h2"
+                    className={classes.detailsFont}
+                  >
                     {productDetails.title}
                   </Typography>
-                  <Typography variant='h5' component='h2'>
+                  <Typography
+                    variant="h5"
+                    component="h2"
+                    className={classes.detailsFont}
+                  >
                     Type: {productDetails.type}
                   </Typography>
                   {/* <Typography variant='body2' color='textSecondary'>
@@ -77,13 +88,17 @@ const ProductDetails = () => {
                   </Typography> */}
                 </Grid>
                 <Grid item>
-                  <Typography variant='h6' component='h2'>
+                  <Typography
+                    variant="h6"
+                    component="h2"
+                    className={classes.detailsFont}
+                  >
                     {productDetails.description}
                   </Typography>
                 </Grid>
               </Grid>
               <Grid item>
-                <Typography variant='h3' component='h2'>
+                <Typography variant="h3" component="h2">
                   {productDetails.price}$
                 </Typography>
               </Grid>
