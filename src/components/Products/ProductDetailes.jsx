@@ -7,7 +7,11 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
-import { CircularProgress } from "@material-ui/core";
+import { Box, CircularProgress, Container } from "@material-ui/core";
+import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import OpacityIcon from "@material-ui/icons/Opacity";
+import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
+import AboutUs from "../Content/AboutUs";
 
 const useStyles = makeStyles((theme) => ({
   back: {
@@ -72,14 +76,23 @@ const ProductDetails = () => {
                   <Typography variant='h5' component='h2'>
                     Type: {productDetails.type}
                   </Typography>
-                  {/* <Typography variant='body2' color='textSecondary'>
-                    ID: {productDetails.id}
-                  </Typography> */}
-                </Grid>
-                <Grid item>
-                  <Typography variant='h6' component='h2'>
-                    {productDetails.description}
-                  </Typography>
+                  <Grid>
+                    <WbSunnyIcon color='error' />
+                    <Typography variant='h6' component='h2'>
+                      He’ll enjoy a spot with lots of bright light, though not
+                      too much direct sun. He won’t enjoy living in shade.
+                    </Typography>
+                    <OpacityIcon color='primary' />
+                    <Typography variant='h6' component='h2'>
+                      His leaves hold a lot of water, so he doesn’t need
+                      frequent watering. Water him only when his soil is dry.
+                    </Typography>
+                    <LocalFloristIcon color='secondary' />
+                    <Typography variant='h6' component='h2'>
+                      He doesn’t cope well with cold. The temperature of most
+                      homes should be fine, but keep him away from draughts.
+                    </Typography>
+                  </Grid>
                 </Grid>
               </Grid>
               <Grid item>
@@ -89,8 +102,14 @@ const ProductDetails = () => {
               </Grid>
             </Grid>
           </Grid>
+          <Grid item>
+            <Typography variant='h6' component='h2'>
+              {productDetails.description}
+            </Typography>
+          </Grid>
         </Paper>
       </div>
+      <AboutUs />
     </div>
   );
 };

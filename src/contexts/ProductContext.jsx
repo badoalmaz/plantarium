@@ -46,6 +46,12 @@ const ProductContextProvider = ({ children }) => {
       payload: data,
     });
   };
+
+  const saveEditedProduct = async (id, editedProduct) => {
+    const data = await axios.patch(`${JSON_API_PRODUCTS}/${id}`, editedProduct);
+    history.push("/catalogue");
+  };
+
   const addProduct = async (product) => {
     const data = await axios.post(JSON_API_PRODUCTS, product);
     getProductsData();
@@ -53,6 +59,7 @@ const ProductContextProvider = ({ children }) => {
 
   const values = {
     productsData: state.productsData,
+    saveEditedProduct,
     getProductsData,
     addProduct,
     history,

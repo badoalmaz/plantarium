@@ -12,6 +12,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Box, Container, Grid, IconButton } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
+import { useProducts } from "../../contexts/ProductContext";
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
     overflow: "hidden",
   },
-  root: {
+  card: {
     maxWidth: 200,
     background: "linear-gradient(to right, #134e5e, #71b280)",
     border: "3px solid gold",
@@ -29,13 +30,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     "& .appear-item": {
       backgroundColor: "black",
-      paddingTop: "20px",
       height: "50px",
       width: "200px",
       opacity: 0.6,
       transform: "translateY(-20px)",
       transition: "0.4s",
-      top: "50%",
+      top: "30%",
       left: "0",
       fontSize: "25px",
       color: "white",
@@ -66,9 +66,10 @@ const WhiteTextTypography = withStyles({
 
 export default function ProductCard({ item }) {
   const classes = useStyles();
+  const { deleteProduct, history } = useProducts();
   return (
     <div>
-      <Card className={classes.root}>
+      <Card className={classes.card}>
         <CardActionArea>
           <NavLink to={`/details/${item.id}`}>
             <div className={classes.figure}>
@@ -100,7 +101,11 @@ export default function ProductCard({ item }) {
         </CardActionArea>
         <CardActions>
           <Container>
-            <Button className={classes.button} variant='outlined'>
+            <Button
+              onClick={() => history.push(`/edit/${item.id}`)}
+              className={classes.button}
+              variant='outlined'
+            >
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
             </Button>
