@@ -1,6 +1,5 @@
+import { Link } from "react-router-dom";
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 const NavbarB = ({ handleLogout }) => {
@@ -62,29 +61,12 @@ const NavbarB = ({ handleLogout }) => {
             >
               Catalogue
             </Nav.Link>
-
-            <NavDropdown
-              class="ml-0"
-              title="Sign in"
-              id="basic-nav-dropdown"
-              href="/catalogue"
-              style={{
-                backgroundColor: " rgba(255,255,255,0.5)",
-                borderRadius: "30px",
-              }}
-            >
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            {}
           </Nav>
           <button onClick={handleLogout}>Log out</button>
+          <Link to="/login">
+            <button>Sign in</button>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

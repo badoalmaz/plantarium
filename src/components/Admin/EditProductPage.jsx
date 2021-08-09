@@ -15,7 +15,6 @@ import CancelIcon from "@material-ui/icons/Cancel";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(5),
-    // margin: "40px auto",
     maxWidth: 1000,
     height: "700px",
     backgroundColor: "rgba(255, 255, 255, .4)",
@@ -91,51 +90,51 @@ const EditProductPage = () => {
         <Container className={classes.container}>
           <img className={classes.addImage} src={product.img} />
 
-          <form className={classes.form} noValidate autoComplete='off'>
+          <form className={classes.form} noValidate autoComplete="off">
             <TextField
-              name='title'
-              variant='outlined'
-              label='Title'
+              name="title"
+              variant="outlined"
+              label="Title"
               value={product.title}
               onChange={(e) => handleInp(e, product, setProduct)}
               className={classes.textfield}
-              color='secondary'
+              color="secondary"
             />
             <TextField
-              name='type'
-              variant='outlined'
-              label='Type'
+              name="type"
+              variant="outlined"
+              label="Type"
               value={product.type}
               onChange={(e) => handleInp(e, product, setProduct)}
               className={classes.textfield}
-              color='secondary'
+              color="secondary"
             />
             <TextField
-              name='image'
-              variant='outlined'
+              name="image"
+              variant="outlined"
               value={product.img}
-              label='Image URL'
+              label="Image URL"
               onChange={(e) => handleInp(e, product, setProduct)}
               className={classes.textfield}
-              color='secondary'
+              color="secondary"
             />
             <TextField
-              name='price'
-              variant='outlined'
-              label='Price'
+              name="price"
+              variant="outlined"
+              label="Price"
               value={product.price}
               onChange={(e) => handleInp(e, product, setProduct)}
               className={classes.textfield}
-              color='secondary'
+              color="secondary"
             />
             <TextField
-              name='description'
-              variant='outlined'
-              label='Description'
+              name="description"
+              variant="outlined"
+              label="Description"
               value={product.description}
               onChange={(e) => handleInp(e, product, setProduct)}
               className={classes.textfield}
-              color='secondary'
+              color="secondary"
             />
             <Container>
               <Button onClick={() => saveEditedProduct(product.id, product)}>
@@ -149,62 +148,6 @@ const EditProductPage = () => {
         </Container>
       </Paper>
     </div>
-    // <Paper elevation={3} className={classes.paper}>
-    //   <h1 className={classes.title}>Add Product</h1>
-    //   <Container className={classes.container}>
-    //     <img style={{ width: 400 }} src={product.img} />
-    //     <form className={classes.form} noValidate autoComplete='off'>
-    //       <TextField
-    //         name='title'
-    //         variant='outlined'
-    //         value={product.title}
-    //         label='Title'
-    //         onChange={(e) => handleInp(e, product, setProduct)}
-    //         className={classes.textfield}
-    //       />
-    //       <TextField
-    //         name='description'
-    //         variant='outlined'
-    //         value={product.description}
-    //         label='Description'
-    //         onChange={(e) => handleInp(e, product, setProduct)}
-    //         className={classes.textfield}
-    //       />
-    //       <TextField
-    //         name='type'
-    //         variant='outlined'
-    //         value={product.type}
-    //         label='Type'
-    //         onChange={(e) => handleInp(e, product, setProduct)}
-    //         className={classes.textfield}
-    //       />
-    //       <TextField
-    //         name='image'
-    //         variant='outlined'
-    //         value={product.img}
-    //         label='Image URL'
-    //         onChange={(e) => handleInp(e, product, setProduct)}
-    //         className={classes.textfield}
-    //       />
-    //       <TextField
-    //         name='price'
-    //         variant='outlined'
-    //         value={product.price}
-    //         label='Price'
-    //         onChange={(e) => handleInp(e, product, setProduct)}
-    //         className={classes.textfield}
-    //       />
-    //       <Container>
-    //         <Button onClick={() => saveEditedProduct(product.id, product)}>
-    //           <SaveIcon />
-    //         </Button>
-    //         <Button onClick={() => history.push("/")}>
-    //           <CancelIcon />
-    //         </Button>
-    //       </Container>
-    //     </form>
-    //   </Container>
-    // </Paper>
   );
 };
 
