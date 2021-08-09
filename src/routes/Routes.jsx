@@ -3,8 +3,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AboutUsPage from "../components/AboutUsPage/AboutUsPage";
 import AddProductPage from "../components/Admin/AddProductPage";
 import EditProductPage from "../components/Admin/EditProductPage";
+import Cart from "../components/Cart/Cart";
 import HomePage from "../components/HomePage/HomePage";
 import NavbarB from "../components/Navbar/Navbar";
+import PayForm from "../components/Payment/PayForm";
 import ProductDetails from "../components/Products/ProductDetailes";
 import ProductList from "../components/Products/ProductList";
 import ProductContextProvider from "../contexts/ProductContext";
@@ -15,12 +17,14 @@ const Routes = () => {
       <NavbarB />
       <ProductContextProvider>
         <Switch>
-          <Route exact path="/aboutuspage" component={AboutUsPage} />
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/catalogue" component={ProductList} />
-          <Route exact path="/addproductpage" component={AddProductPage} />
-          <Route exact path="/edit/:id" component={EditProductPage} />
-          <Route exact path="/details/:id" component={ProductDetails} />
+          <Route exact path='/aboutuspage' component={AboutUsPage} />
+          <Route exact path='/cart' component={Cart} />
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/catalogue' component={ProductList} />
+          <Route exact path='/addproductpage' component={AddProductPage} />
+          <Route exact path='/edit/:id' component={EditProductPage} />
+          <Route exact path='/payform' component={PayForm} />
+          <Route exact path='/details/:id' component={ProductDetails} />
         </Switch>
       </ProductContextProvider>
     </BrowserRouter>
