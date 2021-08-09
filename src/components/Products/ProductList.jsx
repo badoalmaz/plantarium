@@ -70,9 +70,9 @@ const ProductList = () => {
     setPage(page);
   };
 
-  // useEffect(() => {
-  //   console.log(productsData);
-  // }, [productsData]);
+  useEffect(() => {
+    console.log(productsData);
+  }, [productsData]);
 
   return (
     <>
@@ -81,7 +81,7 @@ const ProductList = () => {
         <Grid
           className={classes.catalogueContent}
           container
-          justify="space-around"
+          justify='space-around'
         >
           <div className={classes.catalogueBar}>
             <SecondBar />

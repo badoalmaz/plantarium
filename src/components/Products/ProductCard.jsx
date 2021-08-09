@@ -16,7 +16,9 @@ import { useProducts } from "../../contexts/ProductContext";
 
 const useStyles = makeStyles((theme) => ({
   style: {
+
     width: 250,
+
     color: "white",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
@@ -33,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     "& .appear-item": {
       backgroundColor: "black",
-
       paddingTop: "20px",
       height: "100px",
       width: "100%",
@@ -47,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       position: "absolute",
       visibility: "hidden",
-      // marginTop: "2rem",
     },
     "&:hover .appear-item": {
       transform: "translateY(0)",
@@ -78,15 +78,17 @@ const WhiteTextTypography = withStyles({
 
 export default function ProductCard({ item }) {
   const classes = useStyles();
-  const { deleteProduct, history } = useProducts();
+  const { deleteProduct, history, addProductToCart, cart, checkProductInCart } =
+    useProducts();
+
   return (
     <div>
       <Card className={classes.root}>
         <CardActionArea>
           <NavLink to={`/details/${item.id}`}>
             <div className={classes.figure}>
-              <CardMedia component="img" image={item.img} />
-              <div className="appear-item">
+              <CardMedia component='img' image={item.img} />
+              <div className='appear-item'>
                 <span>{item.type}</span>
               </div>
             </div>
@@ -94,19 +96,19 @@ export default function ProductCard({ item }) {
           <CardContent>
             <WhiteTextTypography
               gutterBottom
-              variant="contained"
-              component="h3"
+              variant='contained'
+              component='h3'
             >
               {item.title}
             </WhiteTextTypography>
             <Typography
               className={classes.style}
-              variant="body2"
-              component="h2"
+              variant='body2'
+              component='h2'
             >
               {item.description}
             </Typography>
-            <Typography variant="h6" component="h6" className={classes.price}>
+            <Typography variant='h6' component='h6' className={classes.price}>
               Price: {item.price}$
             </Typography>
           </CardContent>
@@ -116,7 +118,9 @@ export default function ProductCard({ item }) {
             <Button
               onClick={() => history.push(`/edit/${item.id}`)}
               className={classes.button}
+
               variant="outlined"
+
             >
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
@@ -128,6 +132,13 @@ export default function ProductCard({ item }) {
               <DeleteIcon style={{ marginRight: "20px" }} />
               Delete
             </Button>
+            <IconButton
+              color={checkProductInCart(item.id) ? "secondary" : "primary"}
+              onClick={() => addProductToCart(item)}
+              aria-label='add to favorites'
+            >
+              <AddShoppingCartIcon />
+            </IconButton>
           </Container>
         </CardActions>
       </Card>
