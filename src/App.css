@@ -1,6 +1,10 @@
 a {
   text-decoration: none !important;
 }
+html {
+  background-color: #032010 !important;
+}
+
 .App {
   text-align: center;
 }

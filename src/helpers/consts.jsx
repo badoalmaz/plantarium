@@ -4,3 +4,5 @@ export const ACTIONS = {
 };
 
 export const JSON_API_PRODUCTS = "http://localhost:8003/plants";
+
+export const PRODUCT_LIMIT = 12;

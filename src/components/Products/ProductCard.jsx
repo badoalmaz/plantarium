@@ -16,7 +16,7 @@ import { useProducts } from "../../contexts/ProductContext";
 
 const useStyles = makeStyles((theme) => ({
   style: {
-    width: 180,
+    width: 250,
     color: "white",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300,
     fontFamily: '"Merienda"',
-
-    background: "linear-gradient(to right, #134e5e, #71b280)",
+    // background: "linear-gradient(to right, #134e5e, #71b280)",
+    backgroundImage: `url(${"https://cdn.shopify.com/s/files/1/2930/2308/products/abstract-green-dark-green-texture-photography-backdrop-j-0622_800x.jpg?v=1535714168"})`,
     border: "3px solid white",
     borderRadius: "25px",
     textAlign: "center",
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
       transition: "0.4s",
       top: "30%",
       left: "0",
-      fontSize: "25px",
+      fontSize: "20px",
       color: "white",
       position: "absolute",
       visibility: "hidden",
@@ -72,17 +72,16 @@ const useStyles = makeStyles((theme) => ({
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FFFFFF",
-    fontSize: "30px",
+    fontSize: "25px",
   },
 })(Typography);
 
 export default function ProductCard({ item }) {
-  const { deleteProduct } = useProducts();
   const classes = useStyles();
   const { deleteProduct, history } = useProducts();
   return (
     <div>
-      <Card className={classes.card}>
+      <Card className={classes.root}>
         <CardActionArea>
           <NavLink to={`/details/${item.id}`}>
             <div className={classes.figure}>
@@ -114,7 +113,11 @@ export default function ProductCard({ item }) {
         </CardActionArea>
         <CardActions>
           <Container>
-            <Button className={classes.button} variant="outlined">
+            <Button
+              onClick={() => history.push(`/edit/${item.id}`)}
+              className={classes.button}
+              variant="outlined"
+            >
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
             </Button>

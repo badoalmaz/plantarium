@@ -1,9 +1,12 @@
 import { Container, Grid, makeStyles } from "@material-ui/core";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useProducts } from "../../contexts/ProductContext";
 import AddProductPage from "../Admin/AddProductPage";
+import SecondBar from "../SecondBar/SecondBar";
 import ProductCard from "./ProductCard";
-
+import { Pagination } from "@material-ui/lab";
+import { getCurrentPage } from "../../helpers/functions";
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
   catalogueParalax: {
     // backgroundImage: `url(${"http://www.baltana.com/files/wallpapers-24/Plant-Wallpaper-3840x2400-60182.jpg"})`,
@@ -26,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginRight: "auto",
   },
+
+  catalogueBar: {
+    width: "100%",
+  },
   // aboutUsImg: {
   //   borderRadius: "40px",
   //   marginTop: "2rem",
@@ -34,15 +41,34 @@ const useStyles = makeStyles((theme) => ({
   //   fontSize: "25px",
   //   fontFamily: '"Merienda"',
   // },
+
+  pagination: {
+    margin: "20px auto",
+  },
+
+  // },
 }));
 
 const ProductList = () => {
   const classes = useStyles();
-  const { productsData, getProductsData } = useProducts();
+  const { productsData, getProductsData, pages } = useProducts();
+  const [page, setPage] = useState(getCurrentPage());
+  const history = useHistory();
 
   useEffect(() => {
     getProductsData();
   }, []);
+  useEffect(() => {
+    console.log(page);
+  }, [page]);
+
+  const handlePage = (e, page) => {
+    const search = new URLSearchParams(window.location.search);
+    search.set("_page", page);
+    history.push(`${history.location.pathname}?${search.toString()}`);
+    getProductsData();
+    setPage(page);
+  };
 
   // useEffect(() => {
   //   console.log(productsData);
@@ -57,6 +83,9 @@ const ProductList = () => {
           container
           justify="space-around"
         >
+          <div className={classes.catalogueBar}>
+            <SecondBar />
+          </div>
           {productsData && productsData ? (
             productsData.map((item) => (
               <ProductCard item={item} key={item.id} />
@@ -64,8 +93,25 @@ const ProductList = () => {
           ) : (
             <></>
           )}
+          <Pagination
+            className={classes.pagination}
+            variant="outlined"
+            color="white"
+            count={pages}
+            page={+page}
+            onChange={handlePage}
+            size="large"
+          />
+          {/* </div> */}
         </Grid>
       </div>
+      {/* <div
+      // style={{
+      //   margin: "20px auto",
+      //   // backgroundColor: "white",
+      //   position: "sticky",
+      // }}
+      > */}
     </>
   );
 };

@@ -5,8 +5,7 @@ import { Image } from "react-bootstrap";
 const useStyles = makeStyles((theme) => ({
   paralax: {
     // backgroundImage: `url(${"http://www.baltana.com/files/wallpapers-24/Plant-Wallpaper-3840x2400-60182.jpg"})`,
-    backgroundImage: `url(${"https://wallup.net/wp-content/uploads/2019/09/61744-green-grass-plants-water-droplets.jpg"})`,
-    minHeight: "500px",
+    backgroundImage: `url(${"https://i.pinimg.com/originals/f0/a9/0c/f0a90c2bc63dfa352e39c28dfff16d1f.jpg"})`,
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -14,10 +13,9 @@ const useStyles = makeStyles((theme) => ({
     // borderRadius: "30px",
   },
   content: {
-    height: "1000px",
+    // height: "1000px",
     backgroundColor: "rgba(255, 255, 255, .4)",
-    fontSize: "40px",
-
+    // fontSize: "40px",
     margin: "4rem",
     // fontSize: "25px",
     borderRadius: "60px",
@@ -25,16 +23,31 @@ const useStyles = makeStyles((theme) => ({
   aboutUsImg: {
     borderRadius: "40px",
     marginTop: "2rem",
+    width: "80%",
+    height: "40vw",
   },
   aboutUsTxt: {
-    fontSize: "25px",
+    fontSize: "2vw",
     fontFamily: '"Merienda"',
   },
+  gifAboutUs: {
+    height: "100%",
+    width: "40vw",
+    margin: "auto",
+  },
 }));
+
 const AboutUsPage = () => {
   const classes = useStyles();
   return (
     <div className={classes.paralax}>
+      <Container className={classes.content}>
+        <img
+          className={classes.gifAboutUs}
+          src="https://i.pinimg.com/originals/b3/1f/85/b31f85945c221486eee347ce8bb14c86.gif"
+          alt=""
+        />
+      </Container>
       <Container className={classes.content}>
         <Typography className={classes.aboutUsTxt}>
           {" "}

@@ -4,13 +4,11 @@ import { Carousel } from "react-bootstrap";
 
 const useStyles = makeStyles((theme) => ({
   carousel: {
-    marginTop: "6rem",
     height: "70vh",
   },
   carouselHeading: {
     fontSize: "6rem",
     fontFamily: '"Merienda"',
-    // mixBlendMode: "overlay",
   },
 }));
 const CarouselPic = () => {
