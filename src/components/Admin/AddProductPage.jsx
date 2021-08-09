@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Paper, TextField } from "@material-ui/core";
-// import { useFlexLayout } from "react-table";
 import { useState } from "react";
 import SaveAltIcon from "@material-ui/icons/SaveAlt";
 import CloseIcon from "@material-ui/icons/Close";
@@ -11,7 +10,6 @@ import { useProducts } from "../../contexts/ProductContext";
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(5),
-    // margin: "40px auto",
     maxWidth: 1000,
     height: "700px",
     backgroundColor: "rgba(255, 255, 255, .4)",

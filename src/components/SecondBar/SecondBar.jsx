@@ -17,6 +17,7 @@ import {
   Slider,
   Typography,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const SecondBar = () => {
   const { history, getProductsData, cart } = useProducts();
@@ -95,10 +96,6 @@ const SecondBar = () => {
                   value="Cacti"
                   control={<Radio />}
                   label="Cacti"
-                  //   style={{
-                  //     fontSize: 12,
-                  //     fontFamily: '"Merienda"',
-                  //   }}
                 />
                 <FormControlLabel
                   value="Bonsai"
@@ -116,27 +113,7 @@ const SecondBar = () => {
                   label="Fern"
                 />
               </RadioGroup>
-              {/* <NavDropdown.Item href="#action1">Succulents</NavDropdown.Item>
-              <NavDropdown.Item href="#action2"> Cacti </NavDropdown.Item>
-              <NavDropdown.Item href="#action3"> Bonsai </NavDropdown.Item>
-              <NavDropdown.Item href="#action4"> Orchid </NavDropdown.Item>
-              <NavDropdown.Item href="#action5"> Fern </NavDropdown.Item> */}
             </NavDropdown>
-            {/* <div>
-              <div style={{ width: 250 }}>
-                <Typography
-                  style={{
-                    margin: "auto",
-                    color: "white",
-                    fontFamily: '"Merienda"',
-                  }}
-                  gutterBottom
-                >
-                  Sort by price
-                </Typography>
-                <Slider />
-              </div>
-            </div> */}
           </Nav>
 
           <Form className="d-flex">
@@ -155,15 +132,15 @@ const SecondBar = () => {
             />
           </Form>
         </Navbar.Collapse>
-
-        <Button variant="contained" bg="secondary">
-          <img
-            src="https://image.flaticon.com/icons/png/512/891/891462.png"
-            alt=""
-            style={{ height: "50px" }}
-          />
-          {/* <AddShoppingCartIcon style={{ fontSize: 40 }} /> */}
-        </Button>
+        <Link to="/cart">
+          <Button variant="contained" bg="secondary">
+            <img
+              src="https://image.flaticon.com/icons/png/512/891/891462.png"
+              alt=""
+              style={{ height: "50px" }}
+            />
+          </Button>
+        </Link>
 
         <Button variant="contained" bg="secondary">
           <img
@@ -171,8 +148,6 @@ const SecondBar = () => {
             alt=""
             style={{ height: "50px" }}
           />
-
-          {/* <FavoriteBorderIcon style={{ fontSize: 40 }} /> */}
         </Button>
       </Navbar>
     </div>

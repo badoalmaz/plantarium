@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import { Navbar } from "react-bootstrap";
+import { useAuth } from "../../contexts/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   authButton: {
@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     background:
       "radial-gradient(ellipse at left bottom, rgba(10, 80, 46, 1) 0%, rgba(28, 148, 90, 1) 59%,rgba(4, 89, 48, 1)100%)",
-    // backgroundImage: `url(${""})`,
     boxShadow: "0 50px 70px -20px rgba(0, 0, 0, 0.8)",
   },
   authLabel: {
@@ -81,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Login = (props) => {
+const Login = () => {
   const classes = useStyles();
   const {
     email,
@@ -95,7 +94,7 @@ const Login = (props) => {
     emailError,
     passwordError,
     handleLogout,
-  } = props;
+  } = useAuth();
 
   return (
     <>
@@ -105,8 +104,8 @@ const Login = (props) => {
           <input
             className={classes.authInput}
             type="text"
-            // autoFocus
-            // required
+            autoFocus
+            required
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);

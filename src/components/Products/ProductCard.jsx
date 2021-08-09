@@ -16,7 +16,6 @@ import { useProducts } from "../../contexts/ProductContext";
 
 const useStyles = makeStyles((theme) => ({
   style: {
-
     width: 250,
 
     color: "white",
@@ -28,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300,
     fontFamily: '"Merienda"',
-    // background: "linear-gradient(to right, #134e5e, #71b280)",
     backgroundImage: `url(${"https://cdn.shopify.com/s/files/1/2930/2308/products/abstract-green-dark-green-texture-photography-backdrop-j-0622_800x.jpg?v=1535714168"})`,
     border: "3px solid white",
     borderRadius: "25px",
@@ -87,8 +85,8 @@ export default function ProductCard({ item }) {
         <CardActionArea>
           <NavLink to={`/details/${item.id}`}>
             <div className={classes.figure}>
-              <CardMedia component='img' image={item.img} />
-              <div className='appear-item'>
+              <CardMedia component="img" image={item.img} />
+              <div className="appear-item">
                 <span>{item.type}</span>
               </div>
             </div>
@@ -96,19 +94,19 @@ export default function ProductCard({ item }) {
           <CardContent>
             <WhiteTextTypography
               gutterBottom
-              variant='contained'
-              component='h3'
+              variant="contained"
+              component="h3"
             >
               {item.title}
             </WhiteTextTypography>
             <Typography
               className={classes.style}
-              variant='body2'
-              component='h2'
+              variant="body2"
+              component="h2"
             >
               {item.description}
             </Typography>
-            <Typography variant='h6' component='h6' className={classes.price}>
+            <Typography variant="h6" component="h6" className={classes.price}>
               Price: {item.price}$
             </Typography>
           </CardContent>
@@ -118,9 +116,7 @@ export default function ProductCard({ item }) {
             <Button
               onClick={() => history.push(`/edit/${item.id}`)}
               className={classes.button}
-
               variant="outlined"
-
             >
               <EditIcon style={{ marginRight: "20px" }} />
               Edit
@@ -135,7 +131,7 @@ export default function ProductCard({ item }) {
             <IconButton
               color={checkProductInCart(item.id) ? "secondary" : "primary"}
               onClick={() => addProductToCart(item)}
-              aria-label='add to favorites'
+              aria-label="add to favorites"
             >
               <AddShoppingCartIcon />
             </IconButton>
