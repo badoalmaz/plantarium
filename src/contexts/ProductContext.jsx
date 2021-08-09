@@ -11,9 +11,7 @@ import {
   getCountProductsInCart,
 } from "../helpers/functions";
 
-
 export const productContext = createContext();
-
 export const useProducts = () => {
   return useContext(productContext);
 };
@@ -21,12 +19,9 @@ export const useProducts = () => {
 const INIT_STATE = {
   productsData: [],
   productDetails: {},
-
   pages: 1,
-
   cart: [],
   cartLength: getCountProductsInCart(),
-
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -55,14 +50,6 @@ const ProductContextProvider = ({ children }) => {
   const history = useHistory();
 
   //////////////////////  CRUD START   ///////////////////////////
-  const getProductsData = async () => {
-    const { data } = await axios(JSON_API_PRODUCTS);
-    dispatch({
-      type: ACTIONS.GET_PRODUCTS,
-      payload: data,
-    });
-  };
-
 
   const getProductsData = async () => {
     const search = new URLSearchParams(history.location.search);
@@ -72,36 +59,16 @@ const ProductContextProvider = ({ children }) => {
     dispatch({
       type: ACTIONS.GET_PRODUCTS,
       payload: res,
+    });
+  };
 
   const getProductDetails = async (id) => {
     const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
     dispatch({
       type: ACTIONS.GET_PRODUCT_DETAILS,
       payload: data,
-
     });
   };
-
-  // let productToFind = cart.products.filter(
-  //   (item) => item.item.id === product.id
-  // );
-  // if (productToFind.length == 0) {
-  //   cart.products.push(newProduct);
-  // } else {
-  //   cart.products = cart.products.filter((item) => item.item.id !== product.id);
-  // }
-  // const getProductsData = async () => {
-  //   const search = new URLSearchParams(history.location.search);
-  //   history.push(`${history.location.pathname}?${search.toString()}`);
-  //   const { data } = await axios(
-  //     `${JSON_API_PRODUCTS}/${window.location.search}`
-  //   );
-  //   // const { data } = await axios(JSON_API_PRODUCTS);
-  //   dispatch({
-  //     type: ACTIONS.GET_PRODUCTS,
-  //     payload: data,
-  //   });
-  // };
 
   const saveEditedProduct = async (id, editedProduct) => {
     await axios.patch(`${JSON_API_PRODUCTS}/${id}`, editedProduct);
@@ -121,7 +88,9 @@ const ProductContextProvider = ({ children }) => {
   };
 
   //////////////////////   CRUD  END   ///////////////////////////////////////
-
+  ////////
+  /////////////////
+  //////////////////////
   ///////////////////////////   CART  START ///////////////////////////////
   const getCart = () => {
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -239,7 +208,6 @@ const ProductContextProvider = ({ children }) => {
     changeProductCount,
     deleteCartProducts,
     checkProductInCart,
-
   };
 
   return (

@@ -4,23 +4,16 @@ import { Image } from "react-bootstrap";
 
 const useStyles = makeStyles((theme) => ({
   paralax: {
-
-    // backgroundImage: `url(${"http://www.baltana.com/files/wallpapers-24/Plant-Wallpaper-3840x2400-60182.jpg"})`,
     backgroundImage: `url(${"https://i.pinimg.com/originals/f0/a9/0c/f0a90c2bc63dfa352e39c28dfff16d1f.jpg"})`,
-
     minHeight: "500px",
-
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
   content: {
-    // height: "1000px",
     backgroundColor: "rgba(255, 255, 255, .4)",
-
     fontSize: "40px",
-
     margin: "4rem",
     borderRadius: "60px",
   },
@@ -65,7 +58,7 @@ const AboutUsPage = () => {
         </Typography>
         <Image
           className={classes.aboutUsImg}
-          src='https://im0-tub-ru.yandex.net/i?id=2cf0755685a7606a44d5250a799b34af-l&n=13'
+          src="https://im0-tub-ru.yandex.net/i?id=2cf0755685a7606a44d5250a799b34af-l&n=13"
           fluid
         />
       </Container>
@@ -84,7 +77,7 @@ const AboutUsPage = () => {
         </Typography>
         <Image
           className={classes.aboutUsImg}
-          src='https://cdn.pixabay.com/photo/2020/04/30/05/20/nature-5111414_960_720.jpg'
+          src="https://cdn.pixabay.com/photo/2020/04/30/05/20/nature-5111414_960_720.jpg"
           fluid
         />
       </Container>
@@ -103,7 +96,7 @@ const AboutUsPage = () => {
         </Typography>
         <Image
           className={classes.aboutUsImg}
-          src='https://www.8days.sg/image/11365920/16x9/1920/1080/bb4ad876b9bb1e5d918d701ba7e5c4c2/hQ/02-shop-owner-denise.jpg'
+          src="https://www.8days.sg/image/11365920/16x9/1920/1080/bb4ad876b9bb1e5d918d701ba7e5c4c2/hQ/02-shop-owner-denise.jpg"
           fluid
         />
       </Container>
@@ -122,7 +115,7 @@ const AboutUsPage = () => {
         </Typography>
         <Image
           className={classes.aboutUsImg}
-          src='http://interiordesignshop.net/wp-content/uploads/2018/08/conran03-1.jpg'
+          src="http://interiordesignshop.net/wp-content/uploads/2018/08/conran03-1.jpg"
           fluid
         />
       </Container>
