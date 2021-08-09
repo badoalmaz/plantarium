@@ -16,7 +16,9 @@ import { useProducts } from "../../contexts/ProductContext";
 
 const useStyles = makeStyles((theme) => ({
   style: {
-    width: 230,
+
+    width: 250,
+
     color: "white",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
@@ -26,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300,
     fontFamily: '"Merienda"',
-
-    background: "linear-gradient(to right, #134e5e, #71b280)",
+    // background: "linear-gradient(to right, #134e5e, #71b280)",
+    backgroundImage: `url(${"https://cdn.shopify.com/s/files/1/2930/2308/products/abstract-green-dark-green-texture-photography-backdrop-j-0622_800x.jpg?v=1535714168"})`,
     border: "3px solid white",
     borderRadius: "25px",
     textAlign: "center",
@@ -42,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
       transition: "0.4s",
       top: "30%",
       left: "0",
-      fontSize: "25px",
+      fontSize: "20px",
       color: "white",
       position: "absolute",
       visibility: "hidden",
@@ -116,7 +118,9 @@ export default function ProductCard({ item }) {
             <Button
               onClick={() => history.push(`/edit/${item.id}`)}
               className={classes.button}
-              variant='outlined'
+
+              variant="outlined"
+
             >
               <EditIcon style={{ marginRight: "20px" }} />
               Edit

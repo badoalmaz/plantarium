@@ -3,12 +3,14 @@ import React, { createContext, useContext, useReducer } from "react";
 
 import { useHistory } from "react-router";
 
-import { ACTIONS, JSON_API_PRODUCTS } from "../helpers/consts";
+import { ACTIONS, JSON_API_PRODUCTS, PRODUCT_LIMIT } from "../helpers/consts";
+
 import {
   calcSubPrice,
   calcTotalPrice,
   getCountProductsInCart,
 } from "../helpers/functions";
+
 
 export const productContext = createContext();
 
@@ -19,14 +21,24 @@ export const useProducts = () => {
 const INIT_STATE = {
   productsData: [],
   productDetails: {},
+
+  pages: 1,
+
   cart: [],
   cartLength: getCountProductsInCart(),
+
 };
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case ACTIONS.GET_PRODUCTS:
-      return { ...state, productsData: action.payload };
+      return {
+        ...state,
+        productsData: action.payload.data,
+        pages: Math.ceil(
+          action.payload.headers["x-total-count"] / PRODUCT_LIMIT
+        ),
+      };
     case ACTIONS.GET_PRODUCT_DETAILS:
       return { ...state, productDetails: action.payload };
     case ACTIONS.GET_CART:
@@ -51,13 +63,45 @@ const ProductContextProvider = ({ children }) => {
     });
   };
 
+
+  const getProductsData = async () => {
+    const search = new URLSearchParams(history.location.search);
+    search.set("_limit", PRODUCT_LIMIT);
+    history.push(`${history.location.pathname}?${search.toString()}`);
+    const res = await axios(`${JSON_API_PRODUCTS}/${window.location.search}`);
+    dispatch({
+      type: ACTIONS.GET_PRODUCTS,
+      payload: res,
+
   const getProductDetails = async (id) => {
     const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
     dispatch({
       type: ACTIONS.GET_PRODUCT_DETAILS,
       payload: data,
+
     });
   };
+
+  // let productToFind = cart.products.filter(
+  //   (item) => item.item.id === product.id
+  // );
+  // if (productToFind.length == 0) {
+  //   cart.products.push(newProduct);
+  // } else {
+  //   cart.products = cart.products.filter((item) => item.item.id !== product.id);
+  // }
+  // const getProductsData = async () => {
+  //   const search = new URLSearchParams(history.location.search);
+  //   history.push(`${history.location.pathname}?${search.toString()}`);
+  //   const { data } = await axios(
+  //     `${JSON_API_PRODUCTS}/${window.location.search}`
+  //   );
+  //   // const { data } = await axios(JSON_API_PRODUCTS);
+  //   dispatch({
+  //     type: ACTIONS.GET_PRODUCTS,
+  //     payload: data,
+  //   });
+  // };
 
   const saveEditedProduct = async (id, editedProduct) => {
     await axios.patch(`${JSON_API_PRODUCTS}/${id}`, editedProduct);
@@ -186,12 +230,16 @@ const ProductContextProvider = ({ children }) => {
     getProductDetails,
     productDetails: state.productDetails,
     deleteProduct,
+
+    pages: state.pages,
+
     getCart,
     cart: state.cart,
     addProductToCart,
     changeProductCount,
     deleteCartProducts,
     checkProductInCart,
+
   };
 
   return (

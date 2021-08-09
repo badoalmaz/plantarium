@@ -4,13 +4,15 @@ import AboutUs from "../Content/AboutUs";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
-const HomePage = () => {
+const HomePage = ({ handleLogout }) => {
   return (
     <div>
-      <Header />
-      <CarouselPic />
-      <AboutUs />
+
+      <Header handleLogout={handleLogout} />
+
+
       <Footer />
+
     </div>
   );
 };

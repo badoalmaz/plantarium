@@ -7,6 +7,17 @@ export const handleInp = (e, product, setProduct) => {
   setProduct(obj);
 };
 
+
+export const getCurrentPage = () => {
+  const search = new URLSearchParams(window.location.search);
+
+  if (!search.get("_page")) {
+    return 1;
+  }
+
+  return search.get("_page");
+};
+
 export const calcSubPrice = (product) => product.count * product.item.price;
 
 export const calcTotalPrice = (products) => {
@@ -19,3 +30,4 @@ export function getCountProductsInCart() {
   let cart = JSON.parse(localStorage.getItem("cart"));
   return cart ? cart.products.length : 0;
 }
+
