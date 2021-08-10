@@ -21,7 +21,10 @@ import { ADMIN } from "../../helpers/consts";
 import { JSON_API_PRODUCTS } from "../../helpers/consts";
 import axios from "axios";
 import { useState } from "react";
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -146,8 +149,8 @@ export default function ProductCard({ item }) {
         <CardActionArea>
           <NavLink to={`/details/${item.id}`}>
             <div className={classes.figure}>
-              <CardMedia component='img' image={item.img} />
-              <div className='appear-item'>
+              <CardMedia component="img" image={item.img} />
+              <div className="appear-item">
                 <span>{item.type}</span>
               </div>
             </div>
@@ -155,26 +158,29 @@ export default function ProductCard({ item }) {
           <CardContent>
             <WhiteTextTypography
               gutterBottom
-              variant='contained'
-              component='h3'
+              variant="contained"
+              component="h3"
             >
               {item.title}
             </WhiteTextTypography>
             <Typography
               className={classes.style}
-              variant='body2'
-              component='h2'
+              variant="body2"
+              component="h2"
             >
               {item.description}
             </Typography>
-            <Typography variant='h6' component='h6' className={classes.price}>
+            <Typography variant="h6" component="h6" className={classes.price}>
               Price: {item.price}$
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Container>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
             {email === ADMIN ? (
               <>
                 <Button
@@ -220,6 +226,7 @@ export default function ProductCard({ item }) {
                 >
                   <AddShoppingCartIcon />
                 </IconButton>
+<<<<<<< HEAD
 
                 <IconButton
                   color={checkProductInFavs(item.id) ? "secondary" : ""}
@@ -289,6 +296,75 @@ export default function ProductCard({ item }) {
               {likeCount}
             </IconButton>
 
+=======
+
+                <IconButton
+                  color={checkProductInFavs(item.id) ? "secondary" : ""}
+                  onClick={() => addProductToFavs(item)}
+                  aria-label="add to favs"
+                >
+                  <FavoriteIcon />
+                </IconButton>
+              </>
+            )}
+            <Button
+              onClick={() => history.push(`/edit/${item.id}`)}
+              className={classes.button}
+              variant="outlined"
+              style={{
+                backgroundColor: "rgba(1, 1, 1, .5",
+                borderRadius: "10px",
+                color: "white",
+                borderColor: "#eebb4f",
+                fontFamily: '"Merienda"',
+                margin: "8px",
+                height: "6vh",
+              }}
+            >
+              <EditIcon />
+              Edit
+            </Button>
+            <Button
+              className={classes.button}
+              onClick={() => deleteProduct(item.id)}
+              style={{
+                backgroundColor: "rgba(1, 1, 1, .5",
+                borderRadius: "10px",
+                color: "white",
+                borderColor: "#eebb4f",
+                fontFamily: '"Merienda"',
+                margin: "8px",
+                height: "6vh",
+              }}
+            >
+              <DeleteIcon />
+              Delete
+            </Button>
+
+            <IconButton
+              color={checkProductInCart(item.id) ? "secondary" : ""}
+              onClick={() => addProductToCart(item)}
+              aria-label="add to favorites"
+            >
+              <AddShoppingCartIcon />
+            </IconButton>
+
+            <IconButton
+              color={checkProductInFavs(item.id) ? "secondary" : ""}
+              onClick={() => addProductToFavs(item)}
+              aria-label="add to favs"
+            >
+              <FavoriteIcon />
+            </IconButton>
+
+            <IconButton
+              onClick={() => addUserLike(email, item.id)}
+              aria-label="add to favs"
+            >
+              <FavoriteIcon />
+              {likeCount}
+            </IconButton>
+>>>>>>> master
           </Container>
         </CardActions>
       </Card>
