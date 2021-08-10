@@ -20,7 +20,7 @@ import {
 import { Link } from "react-router-dom";
 
 const SecondBar = () => {
-  const { history, getProductsData, cart } = useProducts();
+  const { history, getProductsData, cart, favs } = useProducts();
   const [type, setType] = useState(getType());
 
   function getType() {
@@ -60,7 +60,6 @@ const SecondBar = () => {
     <div>
       <Navbar
         expand='lg'
-        // fixed="top"
         style={{
           backgroundColor: "rgba(0,0,0,0.5)",
         }}
@@ -151,17 +150,24 @@ const SecondBar = () => {
           </Button>
         </Link>
 
-
-        <Link to="/favorites">
-          <Button variant="contained" bg="secondary">
+        <Link to='/favorites'>
+          <Button variant='contained' bg='secondary'>
+            <h4
+              style={{
+                color: "orange",
+                fontSize: "11px",
+                backgroundColor: "black",
+              }}
+            >
+              {favs.products ? favs.products.length : 0}
+            </h4>
             <img
-              src="https://image.flaticon.com/icons/png/512/4763/4763113.png"
-              alt=""
+              src='https://image.flaticon.com/icons/png/512/4763/4763113.png'
+              alt=''
               style={{ height: "50px" }}
             />
           </Button>
         </Link>
-
       </Navbar>
     </div>
   );
