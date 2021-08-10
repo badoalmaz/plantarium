@@ -15,16 +15,10 @@ import { NavLink } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { useAuth } from "../../contexts/AuthContext";
-
 import { ADMIN } from "../../helpers/consts";
-
 import { JSON_API_PRODUCTS } from "../../helpers/consts";
 import axios from "axios";
 import { useState } from "react";
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -93,10 +87,6 @@ export default function ProductCard({ item }) {
     addProductToFavs,
     checkProductInFavs,
   } = useProducts();
-  const {
-    user: { email },
-    user,
-  } = useAuth();
 
   const addUserLike = async (email, id) => {
     const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
@@ -177,10 +167,6 @@ export default function ProductCard({ item }) {
         </CardActionArea>
         <CardActions>
           <Container>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
             {email === ADMIN ? (
               <>
                 <Button
@@ -226,7 +212,6 @@ export default function ProductCard({ item }) {
                 >
                   <AddShoppingCartIcon />
                 </IconButton>
-<<<<<<< HEAD
 
                 <IconButton
                   color={checkProductInFavs(item.id) ? "secondary" : ""}
@@ -235,79 +220,16 @@ export default function ProductCard({ item }) {
                 >
                   <FavoriteIcon />
                 </IconButton>
-              </>
-            )}
-
-            <Button
-              onClick={() => history.push(`/edit/${item.id}`)}
-              className={classes.button}
-              variant='outlined'
-              style={{
-                backgroundColor: "rgba(1, 1, 1, .5",
-                borderRadius: "10px",
-                color: "white",
-                borderColor: "#eebb4f",
-                fontFamily: '"Merienda"',
-                margin: "8px",
-                height: "6vh",
-              }}
-            >
-              <EditIcon />
-              Edit
-            </Button>
-            <Button
-              className={classes.button}
-              onClick={() => deleteProduct(item.id)}
-              style={{
-                backgroundColor: "rgba(1, 1, 1, .5",
-                borderRadius: "10px",
-                color: "white",
-                borderColor: "#eebb4f",
-                fontFamily: '"Merienda"',
-                margin: "8px",
-                height: "6vh",
-              }}
-            >
-              <DeleteIcon />
-              Delete
-            </Button>
-
-            <IconButton
-              color={checkProductInCart(item.id) ? "secondary" : ""}
-              onClick={() => addProductToCart(item)}
-              aria-label='add to favorites'
-            >
-              <AddShoppingCartIcon />
-            </IconButton>
-
-            <IconButton
-              color={checkProductInFavs(item.id) ? "secondary" : ""}
-              onClick={() => addProductToFavs(item)}
-              aria-label='add to favs'
-            >
-              <FavoriteIcon />
-            </IconButton>
-
-            <IconButton
-              onClick={() => addUserLike(email, item.id)}
-              aria-label='add to favs'
-            >
-              <FavoriteIcon />
-              {likeCount}
-            </IconButton>
-
-=======
-
                 <IconButton
-                  color={checkProductInFavs(item.id) ? "secondary" : ""}
-                  onClick={() => addProductToFavs(item)}
+                  onClick={() => addUserLike(email, item.id)}
                   aria-label="add to favs"
                 >
                   <FavoriteIcon />
+                  {likeCount}
                 </IconButton>
               </>
             )}
-            <Button
+            {/* <Button
               onClick={() => history.push(`/edit/${item.id}`)}
               className={classes.button}
               variant="outlined"
@@ -363,8 +285,7 @@ export default function ProductCard({ item }) {
             >
               <FavoriteIcon />
               {likeCount}
-            </IconButton>
->>>>>>> master
+            </IconButton> */}
           </Container>
         </CardActions>
       </Card>
