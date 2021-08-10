@@ -9,6 +9,7 @@ import {
   calcSubPrice,
   calcTotalPrice,
   getCountProductsInCart,
+  getCountProductsInFavs,
 } from "../helpers/functions";
 
 export const productContext = createContext();
@@ -20,6 +21,8 @@ const INIT_STATE = {
   productsData: [],
   productDetails: {},
   pages: 1,
+  favs: [],
+  favsLength: getCountProductsInFavs(),
   cart: [],
   cartLength: getCountProductsInCart(),
 };
@@ -40,6 +43,10 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, cart: action.payload };
     case ACTIONS.CHANGE_CART_LENGTH:
       return { ...state, cartLength: action.payload };
+    case ACTIONS.GET_FAVS:
+      return { ...state, favs: action.payload };
+    case ACTIONS.CHANGE_FAVS_LENGTH:
+      return { ...state, favs: action.payload };
     default:
       return state;
   }
@@ -190,7 +197,9 @@ const ProductContextProvider = ({ children }) => {
   }
 
   //////////////////////////////    CART END /////////////////////////////
-
+  /////////
+  //////////////////////
+  //////////////////////////////////////////////////
   /////////////////////////////     FAVORITES  start ////////////////////////////////////////////////////////////////
   const getFavs = () => {
     let favs = JSON.parse(localStorage.getItem("favs"));
