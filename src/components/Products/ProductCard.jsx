@@ -15,13 +15,12 @@ import { NavLink } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { useAuth } from "../../contexts/AuthContext";
-<<<<<<< HEAD
+
 import { ADMIN } from "../../helpers/consts";
-=======
+
 import { JSON_API_PRODUCTS } from "../../helpers/consts";
 import axios from "axios";
 import { useState } from "react";
->>>>>>> 2408692ec36b3747031e84496a6755815eadfec4
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -146,8 +145,8 @@ export default function ProductCard({ item }) {
         <CardActionArea>
           <NavLink to={`/details/${item.id}`}>
             <div className={classes.figure}>
-              <CardMedia component='img' image={item.img} />
-              <div className='appear-item'>
+              <CardMedia component="img" image={item.img} />
+              <div className="appear-item">
                 <span>{item.type}</span>
               </div>
             </div>
@@ -155,26 +154,25 @@ export default function ProductCard({ item }) {
           <CardContent>
             <WhiteTextTypography
               gutterBottom
-              variant='contained'
-              component='h3'
+              variant="contained"
+              component="h3"
             >
               {item.title}
             </WhiteTextTypography>
             <Typography
               className={classes.style}
-              variant='body2'
-              component='h2'
+              variant="body2"
+              component="h2"
             >
               {item.description}
             </Typography>
-            <Typography variant='h6' component='h6' className={classes.price}>
+            <Typography variant="h6" component="h6" className={classes.price}>
               Price: {item.price}$
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
           <Container>
-<<<<<<< HEAD
             {email === ADMIN ? (
               <>
                 <Button
@@ -230,11 +228,10 @@ export default function ProductCard({ item }) {
                 </IconButton>
               </>
             )}
-=======
             <Button
               onClick={() => history.push(`/edit/${item.id}`)}
               className={classes.button}
-              variant='outlined'
+              variant="outlined"
               style={{
                 backgroundColor: "rgba(1, 1, 1, .5",
                 borderRadius: "10px",
@@ -268,7 +265,7 @@ export default function ProductCard({ item }) {
             <IconButton
               color={checkProductInCart(item.id) ? "secondary" : ""}
               onClick={() => addProductToCart(item)}
-              aria-label='add to favorites'
+              aria-label="add to favorites"
             >
               <AddShoppingCartIcon />
             </IconButton>
@@ -276,19 +273,18 @@ export default function ProductCard({ item }) {
             <IconButton
               color={checkProductInFavs(item.id) ? "secondary" : ""}
               onClick={() => addProductToFavs(item)}
-              aria-label='add to favs'
+              aria-label="add to favs"
             >
               <FavoriteIcon />
             </IconButton>
 
             <IconButton
               onClick={() => addUserLike(email, item.id)}
-              aria-label='add to favs'
+              aria-label="add to favs"
             >
               <FavoriteIcon />
               {likeCount}
             </IconButton>
->>>>>>> 2408692ec36b3747031e84496a6755815eadfec4
           </Container>
         </CardActions>
       </Card>
