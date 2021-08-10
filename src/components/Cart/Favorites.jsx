@@ -80,6 +80,23 @@ export default function Favorites() {
     <>
       <div className={classes.tableMain}>
         <div className={classes.tableResponsive}>
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            <th
+              style={{
+                color: "#eebb4f",
+                fontSize: "3vw",
+
+                fontFamily: '"Merienda"',
+                margin: "0 auto",
+              }}
+            >
+              Favorite plants
+            </th>
+          </div>
           <table className={classes.table}>
             <thead>
               <tr>
@@ -89,7 +106,7 @@ export default function Favorites() {
                 <th style={{ color: "black" }} className={classes.textStyle}>
                   Title
                 </th>
-                <th style={{ color: "black" }} className={classes.textStyle}>
+                {/* <th style={{ color: "black" }} className={classes.textStyle}>
                   Price
                 </th>
                 <th style={{ color: "black" }} className={classes.textStyle}>
@@ -97,7 +114,7 @@ export default function Favorites() {
                 </th>
                 <th style={{ color: "black" }} className={classes.textStyle}>
                   SubPrice
-                </th>
+                </th> */}
                 <th style={{ color: "black" }} className={classes.textStyle}>
                   Delete
                 </th>
@@ -116,7 +133,7 @@ export default function Favorites() {
                     </td>
 
                     <td className={classes.textStyle}>{product.item.title}</td>
-                    <td className={classes.textStyle}>
+                    {/* <td className={classes.textStyle}>
                       {product.item.price} $
                     </td>
                     <td className={classes.textStyle}>
@@ -128,8 +145,8 @@ export default function Favorites() {
                           handleFavsChange(e.target.value, product.item.id)
                         }
                       />
-                    </td>
-                    <td className={classes.textStyle}>{product.subPrice} $</td>
+                    </td> */}
+                    {/* <td className={classes.textStyle}>{product.subPrice} $</td> */}
                     <td>
                       <Button
                         onClick={() => deleteFavsProducts(product.item.id)}

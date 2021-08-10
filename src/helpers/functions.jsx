@@ -17,7 +17,7 @@ export const getCurrentPage = () => {
   return search.get("_page");
 };
 
-export const calcSubPrice = (product) => product.count * product.item.price;
+export const calcSubPrice = (product) => +product.count * product.item.price;
 
 export const calcTotalPrice = (products) => {
   return products.reduce((ac, cur) => {

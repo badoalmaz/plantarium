@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { ADMIN } from "../../helpers/consts";
+import { useAuth } from "../../contexts/AuthContext";
 
 const NavbarB = ({ handleLogout }) => {
+  const {
+    user: { email },
+  } = useAuth();
+  console.log({ email });
+
   return (
     //navbar start
     <Navbar
@@ -63,19 +70,7 @@ const NavbarB = ({ handleLogout }) => {
             </Nav.Link>
             {}
           </Nav>
-          <button
-            style={{
-              backgroundColor: "rgba(1, 1, 1, .7",
-              borderRadius: "10px",
-              color: "white",
-              borderColor: "#eebb4f",
-              fontFamily: '"Merienda"',
-            }}
-            onClick={handleLogout}
-          >
-            Log out
-          </button>
-          <Link to="/login">
+          {email ? (
             <button
               style={{
                 backgroundColor: "rgba(1, 1, 1, .7",
@@ -84,24 +79,43 @@ const NavbarB = ({ handleLogout }) => {
                 borderColor: "#eebb4f",
                 fontFamily: '"Merienda"',
               }}
+              onClick={handleLogout}
             >
-              Sign in
+              Log out
             </button>
-          </Link>
+          ) : null}
 
-          <Link to="/addproductpage">
-            <button
-              style={{
-                backgroundColor: "rgba(1, 1, 1, .7",
-                borderRadius: "10px",
-                color: "white",
-                borderColor: "#eebb4f",
-                fontFamily: '"Merienda"',
-              }}
-            >
-              Add plant
-            </button>
-          </Link>
+          {email ? null : (
+            <Link to="/login">
+              <button
+                style={{
+                  backgroundColor: "rgba(1, 1, 1, .7",
+                  borderRadius: "10px",
+                  color: "white",
+                  borderColor: "#eebb4f",
+                  fontFamily: '"Merienda"',
+                }}
+              >
+                Sign in
+              </button>
+            </Link>
+          )}
+
+          {email === ADMIN ? (
+            <Link to="/addproductpage">
+              <button
+                style={{
+                  backgroundColor: "rgba(1, 1, 1, .7",
+                  borderRadius: "10px",
+                  color: "white",
+                  borderColor: "#eebb4f",
+                  fontFamily: '"Merienda"',
+                }}
+              >
+                Add plant
+              </button>
+            </Link>
+          ) : null}
         </Navbar.Collapse>
       </Container>
     </Navbar>

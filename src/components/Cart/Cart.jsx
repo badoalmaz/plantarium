@@ -142,7 +142,7 @@ export default function Cart() {
       </div>
 
       <h3 className={classes.textStyle} variant="h5">
-        Total: {cart.totalPrice} $
+        Total: {cart.totalPrice}$
       </h3>
       <Link to="/payform">
         <Button className={classes.button}>

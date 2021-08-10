@@ -7,6 +7,8 @@ export const ACTIONS = {
   CHANGE_FAVS_LENGTH: "CHANGE_FAVS_LENGTH",
 };
 
+export const ADMIN = "bado@gmail.com";
+
 export const JSON_API_PRODUCTS = "http://localhost:8003/plants";
 
 export const PRODUCT_LIMIT = 12;

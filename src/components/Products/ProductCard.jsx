@@ -14,6 +14,8 @@ import { Box, Container, Grid, IconButton } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useAuth } from "../../contexts/AuthContext";
+import { ADMIN } from "../../helpers/consts";
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -86,6 +88,10 @@ export default function ProductCard({ item }) {
     addProductToFavs,
     checkProductInFavs,
   } = useProducts();
+  const {
+    user: { email },
+    user,
+  } = useAuth();
 
   return (
     <div>
@@ -121,55 +127,61 @@ export default function ProductCard({ item }) {
         </CardActionArea>
         <CardActions>
           <Container>
-            <Button
-              onClick={() => history.push(`/edit/${item.id}`)}
-              className={classes.button}
-              variant="outlined"
-              style={{
-                backgroundColor: "rgba(1, 1, 1, .5",
-                borderRadius: "10px",
-                color: "white",
-                borderColor: "#eebb4f",
-                fontFamily: '"Merienda"',
-                margin: "8px",
-                height: "6vh",
-              }}
-            >
-              <EditIcon />
-              Edit
-            </Button>
-            <Button
-              className={classes.button}
-              onClick={() => deleteProduct(item.id)}
-              style={{
-                backgroundColor: "rgba(1, 1, 1, .5",
-                borderRadius: "10px",
-                color: "white",
-                borderColor: "#eebb4f",
-                fontFamily: '"Merienda"',
-                margin: "8px",
-                height: "6vh",
-              }}
-            >
-              <DeleteIcon />
-              Delete
-            </Button>
+            {email === ADMIN ? (
+              <>
+                <Button
+                  onClick={() => history.push(`/edit/${item.id}`)}
+                  className={classes.button}
+                  variant="outlined"
+                  style={{
+                    backgroundColor: "rgba(1, 1, 1, .5",
+                    borderRadius: "10px",
+                    color: "white",
+                    borderColor: "#eebb4f",
+                    fontFamily: '"Merienda"',
+                    margin: "8px",
+                    height: "6vh",
+                  }}
+                >
+                  <EditIcon />
+                  Edit
+                </Button>
+                <Button
+                  className={classes.button}
+                  onClick={() => deleteProduct(item.id)}
+                  style={{
+                    backgroundColor: "rgba(1, 1, 1, .5",
+                    borderRadius: "10px",
+                    color: "white",
+                    borderColor: "#eebb4f",
+                    fontFamily: '"Merienda"',
+                    margin: "8px",
+                    height: "6vh",
+                  }}
+                >
+                  <DeleteIcon />
+                  Delete
+                </Button>
+              </>
+            ) : (
+              <>
+                <IconButton
+                  color={checkProductInCart(item.id) ? "secondary" : ""}
+                  onClick={() => addProductToCart(item)}
+                  aria-label="add to favorites"
+                >
+                  <AddShoppingCartIcon />
+                </IconButton>
 
-            <IconButton
-              color={checkProductInCart(item.id) ? "secondary" : "primary"}
-              onClick={() => addProductToCart(item)}
-              aria-label="add to favorites"
-            >
-              <AddShoppingCartIcon />
-            </IconButton>
-
-            <IconButton
-              color={checkProductInFavs(item.id) ? "secondary" : "primary"}
-              onClick={() => addProductToFavs(item)}
-              aria-label="add to favs"
-            >
-              <FavoriteIcon />
-            </IconButton>
+                <IconButton
+                  color={checkProductInFavs(item.id) ? "secondary" : ""}
+                  onClick={() => addProductToFavs(item)}
+                  aria-label="add to favs"
+                >
+                  <FavoriteIcon />
+                </IconButton>
+              </>
+            )}
           </Container>
         </CardActions>
       </Card>
