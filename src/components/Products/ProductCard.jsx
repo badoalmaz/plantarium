@@ -13,11 +13,11 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Box, Container, Grid, IconButton } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles((theme) => ({
   style: {
     width: 250,
-
     color: "white",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
@@ -52,14 +52,14 @@ const useStyles = makeStyles((theme) => ({
       visibility: "visible",
     },
   },
-  button: {
-    fontSize: "20px",
-    cursor: "pointer",
-    color: "#eebb4f",
-    width: "140px",
-    borderRadius: "8px",
-    border: "2px solid white",
-  },
+  // button: {
+  //   fontSize: "20px",
+  //   cursor: "pointer",
+  //   color: "#eebb4f",
+  //   width: "140px",
+  //   borderRadius: "8px",
+  //   border: "2px solid white",
+  // },
   price: {
     color: "#eebb4f",
     borderRadius: "20px",
@@ -76,8 +76,16 @@ const WhiteTextTypography = withStyles({
 
 export default function ProductCard({ item }) {
   const classes = useStyles();
-  const { deleteProduct, history, addProductToCart, cart, checkProductInCart } =
-    useProducts();
+  const {
+    deleteProduct,
+    history,
+    addProductToCart,
+    cart,
+    favs,
+    checkProductInCart,
+    addProductToFavs,
+    checkProductInFavs,
+  } = useProducts();
 
   return (
     <div>
@@ -117,23 +125,50 @@ export default function ProductCard({ item }) {
               onClick={() => history.push(`/edit/${item.id}`)}
               className={classes.button}
               variant="outlined"
+              style={{
+                backgroundColor: "rgba(1, 1, 1, .5",
+                borderRadius: "10px",
+                color: "white",
+                borderColor: "#eebb4f",
+                fontFamily: '"Merienda"',
+                margin: "8px",
+                height: "6vh",
+              }}
             >
-              <EditIcon style={{ marginRight: "20px" }} />
+              <EditIcon />
               Edit
             </Button>
             <Button
               className={classes.button}
               onClick={() => deleteProduct(item.id)}
+              style={{
+                backgroundColor: "rgba(1, 1, 1, .5",
+                borderRadius: "10px",
+                color: "white",
+                borderColor: "#eebb4f",
+                fontFamily: '"Merienda"',
+                margin: "8px",
+                height: "6vh",
+              }}
             >
-              <DeleteIcon style={{ marginRight: "20px" }} />
+              <DeleteIcon />
               Delete
             </Button>
+
             <IconButton
               color={checkProductInCart(item.id) ? "secondary" : "primary"}
               onClick={() => addProductToCart(item)}
               aria-label="add to favorites"
             >
               <AddShoppingCartIcon />
+            </IconButton>
+
+            <IconButton
+              color={checkProductInFavs(item.id) ? "secondary" : "primary"}
+              onClick={() => addProductToFavs(item)}
+              aria-label="add to favs"
+            >
+              <FavoriteIcon />
             </IconButton>
           </Container>
         </CardActions>

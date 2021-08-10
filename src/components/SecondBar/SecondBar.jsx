@@ -142,13 +142,15 @@ const SecondBar = () => {
           </Button>
         </Link>
 
-        <Button variant="contained" bg="secondary">
-          <img
-            src="https://image.flaticon.com/icons/png/512/4763/4763113.png"
-            alt=""
-            style={{ height: "50px" }}
-          />
-        </Button>
+        <Link to="/favorites">
+          <Button variant="contained" bg="secondary">
+            <img
+              src="https://image.flaticon.com/icons/png/512/4763/4763113.png"
+              alt=""
+              style={{ height: "50px" }}
+            />
+          </Button>
+        </Link>
       </Navbar>
     </div>
   );

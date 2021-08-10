@@ -7,7 +7,6 @@ export const handleInp = (e, product, setProduct) => {
   setProduct(obj);
 };
 
-
 export const getCurrentPage = () => {
   const search = new URLSearchParams(window.location.search);
 
@@ -31,3 +30,7 @@ export function getCountProductsInCart() {
   return cart ? cart.products.length : 0;
 }
 
+export function getCountProductsInFavs() {
+  let favs = JSON.parse(localStorage.getItem("favs"));
+  return favs ? favs.products.length : 0;
+}

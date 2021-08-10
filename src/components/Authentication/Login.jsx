@@ -11,14 +11,15 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     fontSize: "16px",
     letterSpacing: "1px",
-    background: "rgba(131, 209, 132, 1)",
+    background: "#eebb4f",
     cursor: "pointer",
   },
   login: {
     width: "100%",
     minHeight: "100vh",
     padding: "0 20px",
-    background: "#e9e9e9",
+    // background: "#e9e9e9",
+    backgroundImage: `url(${"https://i.pinimg.com/originals/f0/a9/0c/f0a90c2bc63dfa352e39c28dfff16d1f.jpg"})`,
     display: "flex",
   },
   loginContainer: {
@@ -30,12 +31,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    background:
-      "radial-gradient(ellipse at left bottom, rgba(10, 80, 46, 1) 0%, rgba(28, 148, 90, 1) 59%,rgba(4, 89, 48, 1)100%)",
+    background: "rgba(1, 1, 1, .7)",
     boxShadow: "0 50px 70px -20px rgba(0, 0, 0, 0.8)",
+    borderRadius: "45px",
   },
   authLabel: {
     color: "white",
+    fontFamily: '"Merienda"',
     margin: "14px 0",
     display: "block",
     fontSize: "22px",
@@ -71,11 +73,11 @@ const useStyles = makeStyles((theme) => ({
   },
   authSpan: {
     "&:hover": {
-      color: "red",
+      color: "#eebb4f",
     },
   },
   errorMsg: {
-    color: "red",
+    color: "#eebb4f",
     fontSize: "16px",
   },
 }));

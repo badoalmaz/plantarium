@@ -68,6 +68,7 @@ export default function Cart() {
   useEffect(() => {
     setCount();
   }, [cart]);
+  console.log(cart);
 
   const handleCountChange = (count, id) => {
     if (count <= 0) {
