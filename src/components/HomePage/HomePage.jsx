@@ -107,7 +107,7 @@ const HomePage = () => {
   return (
     <>
       <div className={classes.header}>
-        <Box className={classes.headerFlex} component="span" m={1}>
+        <Box className={classes.headerFlex} component='span' m={1}>
           <Typography className={classes.moto}>
             FIND <br /> YOUR <br /> SOULPLANT
             <br />
@@ -121,8 +121,8 @@ const HomePage = () => {
             >
               {(styles) => (
                 <animated.div style={styles}>
-                  <Link to="/catalogue">
-                    <Button className={classes.buttonStyle} variant="outlined">
+                  <Link to='/catalogue'>
+                    <Button className={classes.buttonStyle} variant='outlined'>
                       SHOP NOW &#8594;
                     </Button>
                   </Link>
@@ -133,8 +133,8 @@ const HomePage = () => {
 
           <img
             className={classes.headerPic}
-            src="https://i.pinimg.com/originals/ac/98/ce/ac98ce1eb6858366478a47b634ba8bd2.gif"
-            alt=""
+            src='https://i.pinimg.com/originals/ac/98/ce/ac98ce1eb6858366478a47b634ba8bd2.gif'
+            alt=''
           />
         </Box>
 
@@ -147,9 +147,9 @@ const HomePage = () => {
                 style={{
                   maxHeight: "90vh",
                 }}
-                className="d-block w-100"
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/99ac9937538757.5743ff707f936.gif"
-                alt="First slide"
+                className='d-block w-100'
+                src='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/99ac9937538757.5743ff707f936.gif'
+                alt='First slide'
               />
               <Carousel.Caption>
                 <h2 className={classes.carouselHeading}>
@@ -165,9 +165,9 @@ const HomePage = () => {
                 style={{
                   maxHeight: "90vh",
                 }}
-                className="d-block w-100"
-                src="https://i.pinimg.com/originals/4b/f2/59/4bf259dfb2ed5696c38d8c12f9c0b946.gif"
-                alt="Second slide"
+                className='d-block w-100'
+                src='https://i.pinimg.com/originals/4b/f2/59/4bf259dfb2ed5696c38d8c12f9c0b946.gif'
+                alt='Second slide'
               />
 
               <Carousel.Caption>
@@ -184,9 +184,9 @@ const HomePage = () => {
                 style={{
                   maxHeight: "90vh",
                 }}
-                className="d-block w-100"
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0d54a337538757.5743ff70e21b3.gif"
-                alt="Third slide"
+                className='d-block w-100'
+                src='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/0d54a337538757.5743ff70e21b3.gif'
+                alt='Third slide'
               />
 
               <Carousel.Caption>
@@ -202,7 +202,7 @@ const HomePage = () => {
         {/* content starts*/}
 
         <div className={classes.homeContent}>
-          <Box className={classes.headerFlexContent} component="span" m={1}>
+          <Box className={classes.headerFlexContent} component='span' m={1}>
             <Typography className={classes.aboutUstxt}>
               ABOUT US{" "}
               <Typography className={classes.aboutUsInf}>
@@ -224,10 +224,10 @@ const HomePage = () => {
               >
                 {(styles) => (
                   <animated.div style={styles}>
-                    <Link to="/aboutuspage">
+                    <Link to='/aboutuspage'>
                       <Button
                         className={classes.learnmoreBtn}
-                        variant="outlined"
+                        variant='outlined'
                       >
                         LEARN MORE &#8594;
                       </Button>
@@ -240,59 +240,62 @@ const HomePage = () => {
         </div>
         {/* FOOTER */}
         <div
-          class="col-12"
+          className='col-12'
           style={{
-            background: "linear-gradient(to right bottom,  #020e02, #016f5e)",
+            backgroundColor: "rgba(0,0,0,0.5)",
           }}
         >
-          <footer class=" text-center text-white">
-            <div class="container p-4">
-              <section class="mb-4">
-                <IconButton class="btn btn-outline-light btn-floating m-1">
-                  <FacebookIcon color="primery" />
+          <footer className=' text-center text-white'>
+            <div className='container p-4'>
+              <section className='mb-4'>
+                <IconButton className='btn btn-outline-light btn-floating text-white m-1'>
+                  <FacebookIcon color='primery' />
                 </IconButton>
 
-                <IconButton class="btn btn-outline-light btn-floating m-1">
-                  <TwitterIcon color="primery" />
+                <IconButton className='btn btn-outline-light btn-floating text-white m-1'>
+                  <TwitterIcon color='primery' />
                 </IconButton>
 
-                <IconButton class="btn btn-outline-light btn-floating m-1">
-                  <InstagramIcon color="primery" />
+                <IconButton className='btn btn-outline-light btn-floating text-white m-1'>
+                  <InstagramIcon color='primery' />
                 </IconButton>
 
-                <IconButton class="btn btn-outline-light btn-floating m-1">
-                  <LinkedInIcon color="primery" />
+                <IconButton className='btn btn-outline-light btn-floating text-white m-1'>
+                  <LinkedInIcon color='primery' />
                 </IconButton>
 
-                <IconButton class="btn btn-outline-light btn-floating m-1">
-                  <YouTubeIcon color="primery" />
+                <IconButton className='btn btn-outline-light btn-floating text-white m-1'>
+                  <YouTubeIcon color='primery' />
                 </IconButton>
               </section>
 
-              <section class="">
-                <form action="">
-                  <div class="row d-flex justify-content-center">
-                    <div class="col-auto">
-                      <p class="pt-2">
+              <section className=''>
+                <form action=''>
+                  <div className='row d-flex justify-content-center'>
+                    <div className='col-auto'>
+                      <p className='pt-2'>
                         <strong>Sign up for our newsletter</strong>
                       </p>
                     </div>
 
-                    <div class="col-md-5 col-12">
-                      <div class="form-outline form-white mb-4">
+                    <div className='col-md-5 col-12'>
+                      <div className='form-outline form-white mb-4'>
                         <input
-                          type="email"
-                          id="form5Example2"
-                          class="form-control"
+                          type='email'
+                          id='form5Example2'
+                          className='form-control'
                         />
-                        <label class="form-label" for="form5Example2">
+                        <label className='form-label' for='form5Example2'>
                           Email address
                         </label>
                       </div>
                     </div>
 
-                    <div class="col-auto">
-                      <button type="submit" class="btn btn-outline-light mb-4">
+                    <div className='col-auto'>
+                      <button
+                        type='submit'
+                        className='btn btn-outline-light mb-4'
+                      >
                         Subscribe
                       </button>
                     </div>
@@ -300,7 +303,7 @@ const HomePage = () => {
                 </form>
               </section>
 
-              <section class="mb-4">
+              <section className='mb-4'>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
                   distinctio earum repellat quaerat voluptatibus placeat nam,
@@ -311,11 +314,11 @@ const HomePage = () => {
             </div>
 
             <div
-              class="text-center p-3"
-              style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+              className='text-center p-3'
+              style={{ backgroundColor: "rgba(255, 255, 255, .4)" }}
             >
               © 2021
-              <a class="text-white" href="https://mdbootstrap.com/">
+              <a className='text-white' href='https://mdbootstrap.com/'>
                 Plantarium.com
               </a>
             </div>
