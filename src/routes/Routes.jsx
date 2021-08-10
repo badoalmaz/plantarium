@@ -8,6 +8,7 @@ import Auth from "../components/Authentication/Auth";
 import Login from "../components/Authentication/Login";
 
 import Cart from "../components/Cart/Cart";
+import Favorites from "../components/Cart/Favorites";
 
 import HomePage from "../components/HomePage/HomePage";
 import NavbarB from "../components/Navbar/Navbar";
@@ -27,6 +28,7 @@ const Routes = () => {
             <Route exact path="/login" component={Auth} />
             <Route exact path="/aboutuspage" component={AboutUsPage} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/favorites" component={Favorites} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/catalogue" component={ProductList} />
             <Route exact path="/addproductpage" component={AddProductPage} />

@@ -91,6 +91,7 @@ const ProductContextProvider = ({ children }) => {
   ////////
   /////////////////
   //////////////////////
+
   ///////////////////////////   CART  START ///////////////////////////////
   const getCart = () => {
     let cart = JSON.parse(localStorage.getItem("cart"));
@@ -190,6 +191,103 @@ const ProductContextProvider = ({ children }) => {
 
   //////////////////////////////    CART END /////////////////////////////
 
+  /////////////////////////////     FAVORITES  start ////////////////////////////////////////////////////////////////
+  const getFavs = () => {
+    let favs = JSON.parse(localStorage.getItem("favs"));
+    if (!favs) {
+      localStorage.setItem(
+        "favs",
+        JSON.stringify({
+          products: [],
+          totalPrice: 0,
+        })
+      );
+      favs = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    dispatch({
+      type: ACTIONS.GET_FAVS,
+      payload: favs,
+    });
+  };
+
+  const addProductToFavs = (product) => {
+    let favs = JSON.parse(localStorage.getItem("favs"));
+    if (!favs) {
+      favs = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    let newProduct = {
+      item: product,
+      count: 1,
+      subPrice: product.price,
+    };
+
+    let productToFind = favs.products.filter(
+      (item) => item.item.id === product.id
+    );
+    if (productToFind.length == 0) {
+      favs.products.push(newProduct);
+    } else {
+      favs.products = favs.products.filter(
+        (item) => item.item.id !== product.id
+      );
+    }
+    favs.totalPrice = calcTotalPrice(favs.products);
+    localStorage.setItem("favs", JSON.stringify(favs));
+    dispatch({
+      type: ACTIONS.GET_FAVS,
+      payload: favs,
+    });
+  };
+  const changeFavsCount = (count, id) => {
+    let favs = JSON.parse(localStorage.getItem("favs"));
+    favs.products = favs.products.map((product) => {
+      if (product.item.id === id) {
+        product.count = count;
+        product.subPrice = calcSubPrice(product);
+      }
+      return product;
+    });
+    favs.totalPrice = calcTotalPrice(favs.products);
+    localStorage.setItem("favs", JSON.stringify(favs));
+    dispatch({
+      type: ACTIONS.GET_FAVS,
+      payload: favs,
+    });
+  };
+
+  function deleteFavsProducts(id) {
+    let toDelete = JSON.parse(localStorage.getItem("favs"));
+    toDelete.products = toDelete.products.filter((elem) => elem.item.id !== id);
+    toDelete.totalPrice = calcTotalPrice(toDelete.products);
+    localStorage.setItem("favs", JSON.stringify(toDelete));
+    console.log(toDelete);
+    getFavs();
+    dispatch({
+      type: ACTIONS.CHANGE_FAVS_LENGTH,
+      payload: toDelete.products.length,
+    });
+  }
+
+  function checkProductInFavs(id) {
+    let favs = JSON.parse(localStorage.getItem("favs"));
+    if (favs) {
+      let newFavs = favs.products?.filter((elem) => elem.item.id === id);
+      return newFavs.length > 0 ? true : false;
+    } else {
+      favs = {
+        product: [],
+        totalPrice: 0,
+      };
+    }
+  }
+  //////////////////////////////////  FAVORITES end ///////////////////////////////////////////////////////////////////
+
   const values = {
     productsData: state.productsData,
     saveEditedProduct,
@@ -208,6 +306,13 @@ const ProductContextProvider = ({ children }) => {
     changeProductCount,
     deleteCartProducts,
     checkProductInCart,
+
+    getFavs,
+    favs: state.favs,
+    addProductToFavs,
+    deleteFavsProducts,
+    checkProductInFavs,
+    changeFavsCount,
   };
 
   return (

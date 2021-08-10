@@ -63,9 +63,44 @@ const NavbarB = ({ handleLogout }) => {
             </Nav.Link>
             {}
           </Nav>
-          <button onClick={handleLogout}>Log out</button>
+          <button
+            style={{
+              backgroundColor: "rgba(1, 1, 1, .7",
+              borderRadius: "10px",
+              color: "white",
+              borderColor: "#eebb4f",
+              fontFamily: '"Merienda"',
+            }}
+            onClick={handleLogout}
+          >
+            Log out
+          </button>
           <Link to="/login">
-            <button>Sign in</button>
+            <button
+              style={{
+                backgroundColor: "rgba(1, 1, 1, .7",
+                borderRadius: "10px",
+                color: "white",
+                borderColor: "#eebb4f",
+                fontFamily: '"Merienda"',
+              }}
+            >
+              Sign in
+            </button>
+          </Link>
+
+          <Link to="/addproductpage">
+            <button
+              style={{
+                backgroundColor: "rgba(1, 1, 1, .7",
+                borderRadius: "10px",
+                color: "white",
+                borderColor: "#eebb4f",
+                fontFamily: '"Merienda"',
+              }}
+            >
+              Add plant
+            </button>
           </Link>
         </Navbar.Collapse>
       </Container>
