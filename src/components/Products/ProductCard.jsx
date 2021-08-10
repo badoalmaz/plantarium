@@ -14,6 +14,10 @@ import { Box, Container, Grid, IconButton } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { useProducts } from "../../contexts/ProductContext";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useAuth } from "../../contexts/AuthContext";
+import { JSON_API_PRODUCTS } from "../../helpers/consts";
+import axios from "axios";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   style: {
@@ -52,14 +56,6 @@ const useStyles = makeStyles((theme) => ({
       visibility: "visible",
     },
   },
-  // button: {
-  //   fontSize: "20px",
-  //   cursor: "pointer",
-  //   color: "#eebb4f",
-  //   width: "140px",
-  //   borderRadius: "8px",
-  //   border: "2px solid white",
-  // },
   price: {
     color: "#eebb4f",
     borderRadius: "20px",
@@ -76,6 +72,10 @@ const WhiteTextTypography = withStyles({
 
 export default function ProductCard({ item }) {
   const classes = useStyles();
+  const [likeCount, setLikeCount] = useState(item.likes.length);
+  const {
+    user: { email },
+  } = useAuth();
   const {
     deleteProduct,
     history,
@@ -87,14 +87,59 @@ export default function ProductCard({ item }) {
     checkProductInFavs,
   } = useProducts();
 
+  const addUserLike = async (email, id) => {
+    const { data } = await axios(`${JSON_API_PRODUCTS}/${id}`);
+    let emailToFind = data.likes.filter((user) => user === email);
+    if (emailToFind.length == 0) {
+      data.likes.push(email);
+    } else {
+      data.likes = data.likes.filter((item) => item !== email);
+    }
+    await axios.patch(`${JSON_API_PRODUCTS}/${id}`, data);
+    console.log(data.likes);
+    setLikeCount(data.likes.length);
+  };
+
+  // const addProductToCart = (product) => {
+  //   let cart = JSON.parse(localStorage.getItem("cart"));
+  //   if (!cart) {
+  //     cart = {
+  //       products: [],
+  //       totalPrice: 0,
+  //     };
+  //   }
+  //   let newProduct = {
+  //     item: product,
+  //     count: 1,
+  //     subPrice: product.price,
+  //   };
+
+  //   let productToFind = cart.products.filter(
+  //     (item) => item.item.id === product.id
+  //   );
+  //   if (productToFind.length == 0) {
+  //     cart.products.push(newProduct);
+  //   } else {
+  //     cart.products = cart.products.filter(
+  //       (item) => item.item.id !== product.id
+  //     );
+  //   }
+  //   cart.totalPrice = calcTotalPrice(cart.products);
+  //   localStorage.setItem("cart", JSON.stringify(cart));
+  //   dispatch({
+  //     type: ACTIONS.GET_CART,
+  //     payload: cart,
+  //   });
+  // };
+
   return (
     <div>
       <Card className={classes.root}>
         <CardActionArea>
           <NavLink to={`/details/${item.id}`}>
             <div className={classes.figure}>
-              <CardMedia component="img" image={item.img} />
-              <div className="appear-item">
+              <CardMedia component='img' image={item.img} />
+              <div className='appear-item'>
                 <span>{item.type}</span>
               </div>
             </div>
@@ -102,19 +147,19 @@ export default function ProductCard({ item }) {
           <CardContent>
             <WhiteTextTypography
               gutterBottom
-              variant="contained"
-              component="h3"
+              variant='contained'
+              component='h3'
             >
               {item.title}
             </WhiteTextTypography>
             <Typography
               className={classes.style}
-              variant="body2"
-              component="h2"
+              variant='body2'
+              component='h2'
             >
               {item.description}
             </Typography>
-            <Typography variant="h6" component="h6" className={classes.price}>
+            <Typography variant='h6' component='h6' className={classes.price}>
               Price: {item.price}$
             </Typography>
           </CardContent>
@@ -124,7 +169,7 @@ export default function ProductCard({ item }) {
             <Button
               onClick={() => history.push(`/edit/${item.id}`)}
               className={classes.button}
-              variant="outlined"
+              variant='outlined'
               style={{
                 backgroundColor: "rgba(1, 1, 1, .5",
                 borderRadius: "10px",
@@ -156,19 +201,27 @@ export default function ProductCard({ item }) {
             </Button>
 
             <IconButton
-              color={checkProductInCart(item.id) ? "secondary" : "primary"}
+              color={checkProductInCart(item.id) ? "secondary" : ""}
               onClick={() => addProductToCart(item)}
-              aria-label="add to favorites"
+              aria-label='add to favorites'
             >
               <AddShoppingCartIcon />
             </IconButton>
 
             <IconButton
-              color={checkProductInFavs(item.id) ? "secondary" : "primary"}
+              color={checkProductInFavs(item.id) ? "secondary" : ""}
               onClick={() => addProductToFavs(item)}
-              aria-label="add to favs"
+              aria-label='add to favs'
             >
               <FavoriteIcon />
+            </IconButton>
+
+            <IconButton
+              onClick={() => addUserLike(email, item.id)}
+              aria-label='add to favs'
+            >
+              <FavoriteIcon />
+              {likeCount}
             </IconButton>
           </Container>
         </CardActions>
