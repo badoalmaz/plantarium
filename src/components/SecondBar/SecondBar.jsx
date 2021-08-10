@@ -59,16 +59,16 @@ const SecondBar = () => {
   return (
     <div>
       <Navbar
-        expand="lg"
+        expand='lg'
         // fixed="top"
         style={{
           backgroundColor: "rgba(0,0,0,0.5)",
         }}
       >
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Toggle aria-controls='navbarScroll' />
+        <Navbar.Collapse id='navbarScroll'>
           <Nav
-            className="mr-auto my-2 my-lg-0"
+            className='mr-auto my-2 my-lg-0'
             style={{
               maxHeight: "100px",
               fontSize: 20,
@@ -77,8 +77,8 @@ const SecondBar = () => {
             navbarScroll
           >
             <NavDropdown
-              title="Categories"
-              id="navbarScrollingDropdown"
+              title='Categories'
+              id='navbarScrollingDropdown'
               style={{
                 backgroundColor: " rgba(255,255,255,0.5)",
                 borderRadius: "30px",
@@ -88,41 +88,41 @@ const SecondBar = () => {
             >
               <RadioGroup value={type} onChange={handleChangeType}>
                 <FormControlLabel
-                  value="Succulents"
+                  value='Succulents'
                   control={<Radio />}
-                  label="Succulents"
+                  label='Succulents'
                 />
                 <FormControlLabel
-                  value="Cacti"
+                  value='Cacti'
                   control={<Radio />}
-                  label="Cacti"
+                  label='Cacti'
                 />
                 <FormControlLabel
-                  value="Bonsai"
+                  value='Bonsai'
                   control={<Radio />}
-                  label="Bonsai"
+                  label='Bonsai'
                 />
                 <FormControlLabel
-                  value="Orchid"
+                  value='Orchid'
                   control={<Radio />}
-                  label="Orchid"
+                  label='Orchid'
                 />
                 <FormControlLabel
-                  value="Fern"
+                  value='Fern'
                   control={<Radio />}
-                  label="Fern"
+                  label='Fern'
                 />
               </RadioGroup>
             </NavDropdown>
           </Nav>
 
-          <Form className="d-flex">
+          <Form className='d-flex'>
             <FormControl
-              type="search"
-              placeholder="Search"
-              className="mr-2"
-              aria-label="Search"
-              color="secondary"
+              type='search'
+              placeholder='Search'
+              className='mr-2'
+              aria-label='Search'
+              color='secondary'
               inputProps={{ "aria-label": "search" }}
               onChange={(e) => handleValue(e)}
               style={{
@@ -132,15 +132,25 @@ const SecondBar = () => {
             />
           </Form>
         </Navbar.Collapse>
-        <Link to="/cart">
-          <Button variant="contained" bg="secondary">
+        <Link to='/cart'>
+          <Button variant='contained' bg='secondary'>
+            <h4
+              style={{
+                color: "orange",
+                fontSize: "11px",
+                backgroundColor: "black",
+              }}
+            >
+              {cart.products ? cart.products.length : 0}
+            </h4>
             <img
-              src="https://image.flaticon.com/icons/png/512/891/891462.png"
-              alt=""
+              src='https://image.flaticon.com/icons/png/512/891/891462.png'
+              alt=''
               style={{ height: "50px" }}
             />
           </Button>
         </Link>
+
 
         <Link to="/favorites">
           <Button variant="contained" bg="secondary">
@@ -151,6 +161,7 @@ const SecondBar = () => {
             />
           </Button>
         </Link>
+
       </Navbar>
     </div>
   );
