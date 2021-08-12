@@ -21,11 +21,13 @@ const useStyles = makeStyles({
   textStyle: {
     width: "200px",
     margin: "0 auto",
-    fontSize: "25px",
+    fontSize: "5vh",
     fontFamily: '"Merienda"',
     color: "white",
   },
   tableResponsive: {
+    width: "85vw",
+    position: "relative",
     overflowX: "auto",
   },
   table: {
