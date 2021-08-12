@@ -5,10 +5,10 @@ import AddProductPage from "../components/Admin/AddProductPage";
 import EditProductPage from "../components/Admin/EditProductPage";
 
 import Auth from "../components/Authentication/Auth";
-import Login from "../components/Authentication/Login";
 
 import Cart from "../components/Cart/Cart";
 import Favorites from "../components/Cart/Favorites";
+import Forum from "../components/Forum/Forum";
 
 import HomePage from "../components/HomePage/HomePage";
 import NavbarB from "../components/Navbar/Navbar";
@@ -35,6 +35,7 @@ const Routes = () => {
             <Route exact path="/edit/:id" component={EditProductPage} />
             <Route exact path="/payform" component={PayForm} />
             <Route exact path="/details/:id" component={ProductDetails} />
+            <Route exact path="/forum" component={Forum} />
           </Switch>
         </ProductContextProvider>
       </AuthContextProvider>
