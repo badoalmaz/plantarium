@@ -28,14 +28,14 @@ const analytics = fire.analytics();
 const Forum = () => {
   const [user] = useAuthState(auth);
   return (
-    <div className="forum">
-      <div className="forumContainer">
-        <header className="forumHeader">
+    <div className='forum'>
+      <div className='forumContainer'>
+        <header className='forumHeader'>
           {/* <h1>PLANTFORUM</h1> */}
           <SignOut />
         </header>
 
-        <section className="forumSection">
+        <section className='forumSection'>
           {user ? <ChatRoom /> : <SignIn />}
         </section>
       </div>
@@ -51,7 +51,7 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>
+      <button className='sign-in' onClick={signInWithGoogle}>
         Sign in with Google
       </button>
     </>
@@ -62,7 +62,7 @@ function SignOut() {
   console.log(auth.currentUser);
   return (
     auth.currentUser && (
-      <button className="sign-out" onClick={() => auth.signOut()}>
+      <button className='sign-out' onClick={() => auth.signOut()}>
         Sign Out
       </button>
     )
@@ -95,22 +95,22 @@ function ChatRoom() {
 
   return (
     <>
-      <main className="forumMain">
+      <main className='forumMain'>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
 
         <span ref={dummy}></span>
       </main>
 
-      <form className="forumForm" onSubmit={sendMessage}>
+      <form className='forumForm' onSubmit={sendMessage}>
         <input
-          className="forumInput"
+          className='forumInput'
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
-          placeholder="Write something here"
+          placeholder='Write something here'
         />
 
-        <button className="forumFormBtn" type="submit" disabled={!formValue}>
+        <button className='forumFormBtn' type='submit' disabled={!formValue}>
           send
         </button>
       </form>
@@ -128,12 +128,12 @@ function ChatMessage(props) {
     <>
       <div className={`message ${messageClass}`}>
         <img
-          className="forumImage"
+          className='forumImage'
           src={
             photoURL || "https://api.adorable.io/avatars/23/abott@adorable.png"
           }
         />
-        <p className="forumParagr">{text}</p>
+        <p className='forumParagr'>{text}</p>
       </div>
     </>
   );
