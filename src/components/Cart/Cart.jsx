@@ -71,7 +71,7 @@ export default function Cart() {
   console.log(cart);
 
   const handleCountChange = (count, id) => {
-    if (count <= 0) {
+    if (count <= 0 || count >= 1000) {
       count = 1;
       changeProductCount(count, id);
     } else {
@@ -118,18 +118,18 @@ export default function Cart() {
                   </td>
 
                   <td className={classes.textStyle}>{product.item.title}</td>
-                  <td className={classes.textStyle}>{product.item.price} $</td>
+                  <td className={classes.textStyle}>{+product.item.price} $</td>
                   <td className={classes.textStyle}>
                     <input
                       className={classes.number}
-                      type="number"
+                      type='number'
                       value={product.count}
                       onChange={(e) =>
                         handleCountChange(e.target.value, product.item.id)
                       }
                     />
                   </td>
-                  <td className={classes.textStyle}>{product.subPrice} $</td>
+                  <td className={classes.textStyle}>{+product.subPrice} $</td>
                   <td>
                     <Button onClick={() => deleteCartProducts(product.item.id)}>
                       <DeleteIcon />
@@ -141,10 +141,10 @@ export default function Cart() {
         </table>
       </div>
 
-      <h3 className={classes.textStyle} variant="h5">
+      <h3 className={classes.textStyle} variant='h5'>
         Total: {cart.totalPrice}$
       </h3>
-      <Link to="/payform">
+      <Link to='/payform'>
         <Button className={classes.button}>
           <MonetizationOnIcon style={{ marginRight: "20px" }} />
           BUY NOW

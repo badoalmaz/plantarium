@@ -17,6 +17,7 @@ import {
 
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
+import { useProducts } from "../../contexts/ProductContext";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -47,19 +48,21 @@ function getSteps() {
 }
 const BasicForm = () => {
   const { control } = useFormContext();
+  const { cart } = useProducts();
   return (
     <>
+      <h1>Total: {cart.totalPrice}</h1>
       <Controller
         control={control}
-        name="firstName"
+        name='firstName'
         render={({ field }) => (
           <TextField
-            id="first-name"
-            label="First Name"
-            variant="outlined"
-            placeholder="Enter Your First Name"
+            id='first-name'
+            label='First Name'
+            variant='outlined'
+            placeholder='Enter Your First Name'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
@@ -67,15 +70,15 @@ const BasicForm = () => {
 
       <Controller
         control={control}
-        name="lastName"
+        name='lastName'
         render={({ field }) => (
           <TextField
-            id="last-name"
-            label="Last Name"
-            variant="outlined"
-            placeholder="Enter Your Last Name"
+            id='last-name'
+            label='Last Name'
+            variant='outlined'
+            placeholder='Enter Your Last Name'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
@@ -83,15 +86,15 @@ const BasicForm = () => {
 
       <Controller
         control={control}
-        name="nickName"
+        name='nickName'
         render={({ field }) => (
           <TextField
-            id="nick-name"
-            label="Nick Name"
-            variant="outlined"
-            placeholder="Enter Your Nick Name"
+            id='nick-name'
+            label='Nick Name'
+            variant='outlined'
+            placeholder='Enter Your Nick Name'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
@@ -105,15 +108,15 @@ const ContactForm = () => {
     <>
       <Controller
         control={control}
-        name="emailAddress"
+        name='emailAddress'
         render={({ field }) => (
           <TextField
-            id="email"
-            label="E-mail"
-            variant="outlined"
-            placeholder="Enter Your E-mail Address"
+            id='email'
+            label='E-mail'
+            variant='outlined'
+            placeholder='Enter Your E-mail Address'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
@@ -121,30 +124,30 @@ const ContactForm = () => {
 
       <Controller
         control={control}
-        name="phoneNumber"
+        name='phoneNumber'
         render={({ field }) => (
           <TextField
-            id="phone-number"
-            label="Phone Number"
-            variant="outlined"
-            placeholder="Enter Your Phone Number"
+            id='phone-number'
+            label='Phone Number'
+            variant='outlined'
+            placeholder='Enter Your Phone Number'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
       />
       <Controller
         control={control}
-        name="alternatePhone"
+        name='alternatePhone'
         render={({ field }) => (
           <TextField
-            id="alternate-phone"
-            label="Alternate Phone"
-            variant="outlined"
-            placeholder="Enter Your Alternate Phone"
+            id='alternate-phone'
+            label='Alternate Phone'
+            variant='outlined'
+            placeholder='Enter Your Alternate Phone'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
@@ -158,45 +161,45 @@ const PersonalForm = () => {
     <>
       <Controller
         control={control}
-        name="address1"
+        name='address1'
         render={({ field }) => (
           <TextField
-            id="address1"
-            label="Address 1"
-            variant="outlined"
-            placeholder="Enter Your Address 1"
+            id='address1'
+            label='Address 1'
+            variant='outlined'
+            placeholder='Enter Your Address 1'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
       />
       <Controller
         control={control}
-        name="address2"
+        name='address2'
         render={({ field }) => (
           <TextField
-            id="address2"
-            label="Address 2"
-            variant="outlined"
-            placeholder="Enter Your Address 2"
+            id='address2'
+            label='Address 2'
+            variant='outlined'
+            placeholder='Enter Your Address 2'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
       />
       <Controller
         control={control}
-        name="country"
+        name='country'
         render={({ field }) => (
           <TextField
-            id="country"
-            label="Country"
-            variant="outlined"
-            placeholder="Enter Your Country Name"
+            id='country'
+            label='Country'
+            variant='outlined'
+            placeholder='Enter Your Country Name'
             fullWidth
-            margin="normal"
+            margin='normal'
             {...field}
           />
         )}
@@ -219,46 +222,46 @@ const PaymentForm = () => {
         cvc={cvc}
         focused={focus}
       />
-      <form action="#" style={{ margin: "20px" }}>
+      <form action='#' style={{ margin: "20px" }}>
         <TextField
-          type="tel"
-          name="number"
-          placeholder="Card Number"
+          type='tel'
+          name='number'
+          placeholder='Card Number'
           fullWidth
-          margin="normal"
+          margin='normal'
           value={number}
           onChange={(e) => setNumber(e.target.value)}
           onFocus={(e) => setFocus(e.target.name)}
         />
 
         <TextField
-          type="tel"
-          name="name"
-          placeholder="Name"
+          type='tel'
+          name='name'
+          placeholder='Name'
           fullWidth
-          margin="normal"
+          margin='normal'
           value={name}
           onChange={(e) => setName(e.target.value)}
           onFocus={(e) => setFocus(e.target.name)}
         />
 
         <TextField
-          type="text"
-          name="expiry"
-          placeholder="MM/YY Expiry"
+          type='text'
+          name='expiry'
+          placeholder='MM/YY Expiry'
           fullWidth
-          margin="normal"
+          margin='normal'
           value={expiry}
           onChange={(e) => setExpiry(e.target.value)}
           onFocus={(e) => setFocus(e.target.name)}
         />
 
         <TextField
-          type="tel"
-          name="cvc"
-          placeholder="CVC"
+          type='tel'
+          name='cvc'
+          placeholder='CVC'
           fullWidth
-          margin="normal"
+          margin='normal'
           value={cvc}
           onChange={(e) => setCvc(e.target.value)}
           onFocus={(e) => setFocus(e.target.name)}
@@ -299,6 +302,7 @@ const PayForm = () => {
       country: "",
     },
   });
+
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
 
@@ -332,8 +336,8 @@ const PayForm = () => {
           if (isStepOptional(index)) {
             labelProps.optional = (
               <Typography
-                variant="caption"
-                align="center"
+                variant='caption'
+                align='center'
                 style={{ display: "block" }}
               ></Typography>
             );
@@ -347,7 +351,7 @@ const PayForm = () => {
       </Stepper>
 
       {activeStep === steps.length ? (
-        <Typography className={classes.stepper} variant="h3" align="center">
+        <Typography className={classes.stepper} variant='h3' align='center'>
           Thank You
         </Typography>
       ) : (
@@ -368,9 +372,9 @@ const PayForm = () => {
               </Button>
               <Button
                 className={classes.button}
-                variant="contained"
-                color="primary"
-                type="submit"
+                variant='contained'
+                color='primary'
+                type='submit'
               >
                 {activeStep === steps.length - 1 ? "Finish" : "Next"}
               </Button>

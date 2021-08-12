@@ -9,7 +9,7 @@ export const useAuth = () => {
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
-  const [email, setEmail] = useState("email");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
