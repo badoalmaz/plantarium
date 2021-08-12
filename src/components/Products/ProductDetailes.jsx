@@ -10,7 +10,6 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import OpacityIcon from "@material-ui/icons/Opacity";
 import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
-import Comments from "../Comments/Comments";
 
 const useStyles = makeStyles((theme) => ({
   back: {
@@ -23,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   paper: {
+    marginTop: "4.4rem",
     backgroundColor: "rgba(255, 255, 255, .4)",
     padding: theme.spacing(2),
     margin: "auto",
@@ -49,7 +49,6 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { getProductDetails, productDetails } = useProducts();
   const classes = useStyles();
-  console.log(productDetails);
 
   useEffect(() => {
     getProductDetails(id);
@@ -120,7 +119,6 @@ const ProductDetails = () => {
           </Grid>
         </Paper>
       </div>
-      <Comments />
     </div>
   );
 };

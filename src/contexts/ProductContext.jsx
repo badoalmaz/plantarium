@@ -21,9 +21,9 @@ const INIT_STATE = {
   productsData: [],
   productDetails: {},
   pages: 1,
-  favs: [],
+  favs: JSON.parse(localStorage.getItem("favs")),
   favsLength: getCountProductsInFavs(),
-  cart: [],
+  cart: JSON.parse(localStorage.getItem("cart")),
   cartLength: getCountProductsInCart(),
 };
 
@@ -132,7 +132,7 @@ const ProductContextProvider = ({ children }) => {
     let newProduct = {
       item: product,
       count: 1,
-      subPrice: product.price,
+      subPrice: +product.price,
     };
 
     let productToFind = cart.products.filter(
@@ -303,6 +303,8 @@ const ProductContextProvider = ({ children }) => {
   //////////////////////////     LIKES   START      ////////////////////////
 
   //////////////        LIKE END       /////////////////////////
+  /////////
+  //////////////
   const values = {
     productsData: state.productsData,
     saveEditedProduct,

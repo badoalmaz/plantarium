@@ -7,12 +7,7 @@
       "price": "23",
       "description": "(This plant comes in a 3.5 inch pot. All of our plants are grown under the same conditions, although not all the plants are the same. You will receive a similar plant in size and shape to the ones in the pictures. Our plants are hand-picked and carefully selected to bring you the best quality possible. Please allow us up to 3 business days to process your order. If you wish to receive your order on a specific date, or have special instructions, please add a note at the checkout . The plant is shipped in its pot to prevent any damage to the roots).This plant is also known as Fairy Washboard and is slow growing. It is a succulent that has rosettes that grow up to 4 inches in diameter. The leaves have a rigid washboard appearance and the leaves are cream, green and yellow with flowers that are withe, tubular and come out as clusters on a stem that is up to 14 inches tall.",
       "status": false,
-      "likes": [
-        "kageyama@gmail.com",
-        "aizhan@gmail.com",
-        null,
-        null
-      ],
+      "likes": ["kageyama@gmail.com", "aizhan@gmail.com", "aizhan@mail.com"],
       "id": 1
     },
     {
@@ -22,15 +17,7 @@
       "price": 23,
       "description": "This small cactus has very tuberous roots that remains half buried in habitat, showing approximately 1 cm from the ground. Plants have usually few segments (up to 6). But at the northern localities this species can grow with dozens of segments. Can form large clumps with more than 100 heads.The flower colour ranges from brown to deep rose red to a pale yellowish rose and rare, but possible with almost white. Pericarpels without areoles but with a few scales bearing hairs and long bristles in the axils. The flowering is diurnal and takes place during the summer. This species resists cold well if it is dry and need to be kept in a cool place during winter rest (this is important for the flowers as well as for their health) Without this cool winter period they normally wont get many buds. They need a sufficient amount of air.",
       "status": false,
-      "likes": [
-        "kageyama@gmail.com",
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
+      "likes": ["kageyama@gmail.com", "aizhan@mail.com"],
       "id": 2
     },
     {
@@ -40,9 +27,7 @@
       "price": "15",
       "description": "Crassula ovata cv. Lemon & Lime (Variegated Jade Plant) is a spectacular slow growing cultivar close in appearance to the common jade plant but with shiny cream stripes on spoon-shaped leaves. Just as its all green cousin it is a many-branching succulent shrub with a stout trunk up to 120-180 cm tall.Cultivation and Propagation: Crassula ovata cv. Lemon & Lime can make a nice low succulent shrublet in the garden, does well in containers, and makes a good houseplant. It is widely grown and not difficult to cultivate. They thrive with bright light and ample airflow. Tolerates very dry conditions but looks best with occasional water.",
       "status": false,
-      "likes": [
-        "kageyama@gmail.com"
-      ],
+      "likes": ["kageyama@gmail.com", "aizhan@mail.com"],
       "id": 3
     },
     {
@@ -52,9 +37,7 @@
       "price": 10,
       "description": " Aloe pictifolia (Speckled Aloe) is an attractive small aloe up to 10 inches tall that slowly forms small groups of leaf rosettes. The blue-grey-green leaves are ornamented with many white spots. Out of habitat, this plant is reminiscent of Aloe microstigma, to which it is probably closely related.Derivation of specific name: The name 'pictifolia' means 'painted leaves', a reference to the extensively white-spotted surface its leaves.Habit Plants usually form small to dense groups of up to seven rosettes 20-25 cm in diameter.Cultivation and Propagation: Aloe pictifolia is easy to grow, requiring very little care. In the wild this plant grows on cliffs. Easy to grow and good for small pots. Suckers vigorously.",
       "status": false,
-      "likes": [
-        "kageyama@gmail.com"
-      ],
+      "likes": ["kageyama@gmail.com"],
       "id": 4
     },
     {
@@ -64,9 +47,7 @@
       "price": 11,
       "description": "Sedum burrito is always an interesting plant and easy to grow in container or in the rock garden in warm areas. It is tough, sun and drought tolerant, but also will do well in partial shade. Few plants need less attention than sedums. The plants make active growth in fall/winter, unlike most other stonecrop and propagate easily.Soil: Porous soil with adequate drainage.",
       "status": false,
-      "likes": [
-        "kageyama@gmail.com"
-      ],
+      "likes": ["kageyama@gmail.com"],
       "id": 5
     },
     {
@@ -156,7 +137,7 @@
       "price": 12,
       "description": "This small cactus has very tuberous roots that remains half buried in habitat, showing approximately 1 cm from the ground. Plants have usually few segments (up to 6). But at the northern localities this species can grow with dozens of segments. Can form large clumps with more than 100 heads.The flower colour ranges from brown to deep rose red to a pale yellowish rose and rare, but possible with almost white. Pericarpels without areoles but with a few scales bearing hairs and long bristles in the axils. The flowering is diurnal and takes place during the summer. This species resists cold well if it is dry and need to be kept in a cool place during winter rest (this is important for the flowers as well as for their health) Without this cool winter period they normally wont get many buds. They need a sufficient amount of air.",
       "status": false,
-      "likes": [],
+      "likes": ["aizhan@mail.com"],
       "id": 14
     },
     {
@@ -186,7 +167,7 @@
       "price": 11,
       "description": "This version of our trained rock juniper features an older tree. Trunk size is on the tree is much larger, taller and arrives with denser foliage for a more powerful appearance. Arrives with antique stone. Tree arrives styled. However, the tree can also be shaped with additional wire for those looking to move branches into different positions. Foliage can also be pruned to maintain shape as growth occurs.Juniper bonsai, aged 7-9 years old, measures between 12 to 15 in height potted. Arrives in a 10 ceramic pot. Care information included. Exclusively from Eastern Leaf. Bonsai tree shape may vary. Since these trees are trained, it may arrive with wire on branches during training. Pot may vary depending on availability.",
       "status": false,
-      "likes": [],
+      "likes": ["aizhan@mail.com"],
       "id": 17
     },
     {
@@ -444,7 +425,9 @@
     {
       "user": "aizhan@gmail.com",
       "content": "I love Plants",
-      "productId": 1
+      "time": "10.08.2021",
+      "productId": 1,
+      "id": 1
     }
   ]
 }
