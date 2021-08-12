@@ -68,21 +68,32 @@ const NavbarB = ({ handleLogout }) => {
             >
               Catalogue
             </Nav.Link>
+            <Nav.Link
+              href="/forum"
+              style={{
+                color: "white",
+              }}
+            >
+              Plantforum
+            </Nav.Link>
             {}
           </Nav>
           {email ? (
-            <button
-              style={{
-                backgroundColor: "rgba(1, 1, 1, .7",
-                borderRadius: "10px",
-                color: "white",
-                borderColor: "#eebb4f",
-                fontFamily: '"Merienda"',
-              }}
-              onClick={handleLogout}
-            >
-              Log out
-            </button>
+            <Link to="/login">
+              <button
+                style={{
+                  backgroundColor: "rgba(1, 1, 1, .7",
+                  borderRadius: "10px",
+                  // borderColor: "#eebb4f",
+                  border: "1px solid #eebb4f",
+                  color: "white",
+                  fontFamily: '"Merienda"',
+                }}
+                onClick={handleLogout}
+              >
+                Log out
+              </button>
+            </Link>
           ) : null}
 
           {email ? null : (
@@ -92,7 +103,7 @@ const NavbarB = ({ handleLogout }) => {
                   backgroundColor: "rgba(1, 1, 1, .7",
                   borderRadius: "10px",
                   color: "white",
-                  borderColor: "#eebb4f",
+                  border: "1px solid #eebb4f",
                   fontFamily: '"Merienda"',
                 }}
               >
@@ -108,7 +119,7 @@ const NavbarB = ({ handleLogout }) => {
                   backgroundColor: "rgba(1, 1, 1, .7",
                   borderRadius: "10px",
                   color: "white",
-                  borderColor: "#eebb4f",
+                  border: "1px solid #eebb4f",
                   fontFamily: '"Merienda"',
                 }}
               >
