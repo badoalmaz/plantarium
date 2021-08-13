@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pair-hackathon/static/css/main.be83bb6d.chunk.css",
+    "main.js": "/pair-hackathon/static/js/main.34484e6c.chunk.js",
+    "main.js.map": "/pair-hackathon/static/js/main.34484e6c.chunk.js.map",
+    "runtime-main.js": "/pair-hackathon/static/js/runtime-main.a6d90014.js",
+    "runtime-main.js.map": "/pair-hackathon/static/js/runtime-main.a6d90014.js.map",
+    "static/css/2.eb6b0fad.chunk.css": "/pair-hackathon/static/css/2.eb6b0fad.chunk.css",
+    "static/js/2.98ec53e9.chunk.js": "/pair-hackathon/static/js/2.98ec53e9.chunk.js",
+    "static/js/2.98ec53e9.chunk.js.map": "/pair-hackathon/static/js/2.98ec53e9.chunk.js.map",
+    "index.html": "/pair-hackathon/index.html",
+    "static/css/2.eb6b0fad.chunk.css.map": "/pair-hackathon/static/css/2.eb6b0fad.chunk.css.map",
+    "static/css/main.be83bb6d.chunk.css.map": "/pair-hackathon/static/css/main.be83bb6d.chunk.css.map",
+    "static/js/2.98ec53e9.chunk.js.LICENSE.txt": "/pair-hackathon/static/js/2.98ec53e9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a6d90014.js",
+    "static/css/2.eb6b0fad.chunk.css",
+    "static/js/2.98ec53e9.chunk.js",
+    "static/css/main.be83bb6d.chunk.css",
+    "static/js/main.34484e6c.chunk.js"
+  ]
+}
